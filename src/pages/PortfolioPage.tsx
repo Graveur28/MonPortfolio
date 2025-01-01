@@ -13,9 +13,14 @@ import PinDropIcon from '@mui/icons-material/PinDrop';
 import SendIcon from '@mui/icons-material/Send';
 import LanguageIcon from '@mui/icons-material/Language';
 import { useState } from 'react';
+import imgg from '../assets/image/img3.jpg'
 
+import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
+import ModeNightIcon from '@mui/icons-material/ModeNight';
+import WbSunnyIcon from '@mui/icons-material/WbSunny';
 
 
 export default function PortfolioPage() {
@@ -26,14 +31,36 @@ export default function PortfolioPage() {
     //     slidesToShow: 1,
     //     slidesToScroll: 1,
     //   };
+    const settings = {
+        dots: false,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      };
 
     const [stateTheme,setStateTheme]=useState("noir")
     const changeTheme=()=>{
-        if(stateTheme === 'noir'){
-            setStateTheme('blanc') 
-         }else{setStateTheme('noir')}
-        }
+        if(stateTheme === 'noir'){setStateTheme('blanc') }
+        else{setStateTheme('noir')}
+    }
     
+    const donees=[
+        {
+            id:1,
+            text:"developpeur web base a Kinshasa",
+            img:imgg,
+        },
+        {
+            id:2,
+            text:"Exauce NYEMBWE",
+            img:imgg,
+        },
+    ];
+
+    
+
+
   return (
     <div className={`PortfolioPage ${stateTheme} `}>
        <header>
@@ -51,20 +78,39 @@ export default function PortfolioPage() {
                     <li><a href="#secProject"><span>Projets</span></a></li>
                     <li><a href=""><span>Mon blog</span></a></li>
                     <li><a href="#secContac" ><span>Contact</span></a></li>
-                    <li><button onClick={changeTheme} style={stateTheme === 'noir'? {backgroundColor:'black',color:'white'}: {backgroundColor:'white',color:'black'} } >  {stateTheme}</button></li>
                  </ul>
               </div>
+              <button className='btTheme' onClick={changeTheme} style={stateTheme === 'noir'? {backgroundColor:'black',color:'white'}: {backgroundColor:'white',color:'black'}} >  {stateTheme ? <ModeNightIcon/> : <WbSunnyIcon/> }</button>
           </div>
        </header>
        <body>
          <div className="containtBody">
             <section className="firts" id='secFirst' >
                 <div className="containtFirts">
-                  
-                   <div className="pres1">
+                 <Slider {...settings}>
+                    {
+                        donees.map((d) =>(
+                          <div key={d.id} className="pres1">
+                              <div className="partGauche">
+                                 <div className="partgaucheContent">
+                                     <p className='h55'> {"<"}<span className='balish5'>h5</span> {">"} <span className='enVertsite sizEnv'>Salut!</span> {"</"} <span className='balish5'>h5</span>  {">"}</p>
+                                     <p className='h11'> {"<"}<span className='balish5'>h1</span> {">"} <span className='wordd'>je suis <span className='enVertsite'>{d.text}</span> </span> {"<"} <span className='balish5'>h1</span>  {"/>"} </p>
+                                     <div className="btss">
+                                         <button className='bntac'> M'ecouter</button>
+                                         <button className='bntac rf'>Mon travail</button>
+                                     </div>
+                                  </div>
+                              </div>
+                              <div className="partDroite">
+                                  <img src={d.img} alt="" />
+                              </div>
+                          </div>  
+                        ))
+                    }
+                   {/* <div className="pres1">
                        <div className="partGauche">
                           <div className="partgaucheContent">
-                               <p className='h55'> {"<"}   <span className='balish5'>h5</span> {">"} <span className='enVertsite sizEnv'>Salut!</span> {"</"} <span className='balish5'>h5</span>  {">"}</p>
+                               <p className='h55'> {"<"}<span className='balish5'>h5</span> {">"} <span className='enVertsite sizEnv'>Salut!</span> {"</"} <span className='balish5'>h5</span>  {">"}</p>
                               <p className='h11'> {"<"}<span className='balish5'>h1</span> {">"} <span className='wordd'>je suis <span className='enVertsite'>developpeur web</span>  base <br />  a Kinshasa</span> {"<"} <span className='balish5'>h1</span>  {"/>"} </p>
                              <div className="btss">
                                  <button className='bntac'> M'ecouter</button>
@@ -75,22 +121,8 @@ export default function PortfolioPage() {
                        <div className="partDroite">
 
                        </div>
-                  </div>
-                   <div className="pres1">
-                  <div className="partGauche">
-                     <div className="partgaucheContent">
-                            <p className='h55'><span className='enVertsite sizEnv'>Salut!</span> </p>
-                            <p className='h11'> {"<"}<span className='balish5'>h1</span> {">"} <span className='wordd'>je suis <span className='enVertsite'>Exauce <br />NYEMBWE </span></span> </p>
-                            <div className="btss">
-                                 <button className='bntac'> M'ecouter</button>
-                                 <button className='bntac rf'>Mon travail</button>
-                            </div>
-                          </div>
-                 </div>
-                 <div className="partDroite">
-                      <span>lmba lia</span>
-                 </div>
-                  </div>
+                  </div> */}
+                   </Slider>
                  
                 </div>
             </section>
@@ -102,7 +134,7 @@ export default function PortfolioPage() {
                      <div className="gchht">
                         <span className='titSect'>A propos</span>
                         <span className='soutTiSec'>A propos</span>
-                        <span>fdfsdf sdfsd dfdsfsdfs dfsdfsdfds fsdfsdfs </span>
+                        <span>Vos idees en realite numerique,Contactez-moi des aujourd'hui </span>
                         <table>
                               <td className='td1'>
                                  <tr><span className='droo'>Nom:</span></tr>
@@ -135,7 +167,7 @@ export default function PortfolioPage() {
                         <div className="ligneCvrs">
                             <div className="bpss">
                                <div className="containBpss">
-                                  <span className='aneee'>2034-5454</span>
+                                  <span className='aneee'>2021-2022</span>
                                   <span className='diplo'>Diplome d'etat </span>
                                   <span className='etabl'>College saint raphael</span>
                                   <span className='resudd'>L'une des grandes ecoles de prestige ans le savoir et l'exxcelence situer Kinsahsa,Limiet 1erer rue BP1800</span>
@@ -161,10 +193,10 @@ export default function PortfolioPage() {
                            </div>
                            <div className="bpss">
                               <div className="containBpss">
-                                  <span className='aneee'>2034-5454</span>
-                                  <span className='diplo'>Diplome d'etat </span>
-                                  <span className='etabl'>College saint raphael</span>
-                                  <span className='resudd'>L'une des grandes ecoles de prestige ans le savoir et l'exxcelence situer Kinsahsa,Limiet 1erer rue BP1800</span>
+                                  <span className='aneee'>2021-2024</span>
+                                  <span className='diplo'>Diplome de licence:GENIE INFORMATIQUE </span>
+                                  <span className='etabl'>LEADERSHIP ACADEMIA UNIVERSITY</span>
+                                  <span className='resudd'>Une university au cursus LMD avec plus ...</span>
                                </div>
                             </div>
                         </div>
@@ -224,51 +256,51 @@ export default function PortfolioPage() {
                      <div className="contentSkill">
                          <div className="divSkill2">
                             <div className="barskilContent">
-                                <div className="topBarSkil"><span>Javascript</span> <span>85%</span> </div>
+                                <div className="topBarSkil"><span>Javascript</span> </div>
                                 <div className="bottombarSkill"> <span className='Javascript'></span> </div>
                             </div>
                             <div className="barskilContent">
-                               <div className="topBarSkil"><span>Typescript</span> <span>90%</span> </div>
+                               <div className="topBarSkil"><span>Typescript</span>  </div>
                                <div className="bottombarSkill"> <span className='Typescript'></span> </div>
                            </div>
                          </div>
                          <div className="divSkill2">
                             <div className="barskilContent">
-                                <div className="topBarSkil"><span>Figma</span> <span>90%</span> </div>
+                                <div className="topBarSkil"><span>Figma</span>  </div>
                                 <div className="bottombarSkill"> <span className='Figma'></span> </div>
                             </div>
                             <div className="barskilContent">
-                               <div className="topBarSkil"><span>WordPress</span><span>90%</span> </div>
+                               <div className="topBarSkil"><span>WordPress</span></div>
                                <div className="bottombarSkill"> <span className='WordPress'></span> </div>
                            </div>
                          </div>
                          <div className="divSkill2">
                             <div className="barskilContent">
-                                <div className="topBarSkil"><span>Css</span> <span>87%</span> </div>
+                                <div className="topBarSkil"><span>Css</span>  </div>
                                 <div className="bottombarSkill"> <span className='Css'></span> </div>
                             </div>
                             <div className="barskilContent">
-                               <div className="topBarSkil"><span>Html</span> <span>90%</span> </div>
+                               <div className="topBarSkil"><span>Html</span>  </div>
                                <div className="bottombarSkill"> <span className='Html'></span> </div>
                            </div>
                          </div>
                          <div className="divSkill2">
                             <div className="barskilContent">
-                                <div className="topBarSkil"><span>NestJS</span> <span>90%</span> </div>
+                                <div className="topBarSkil"><span>NestJS</span> </div>
                                 <div className="bottombarSkill"> <span className='NestJS'></span> </div>
                             </div>
                             <div className="barskilContent">
-                               <div className="topBarSkil"><span>NodeJS</span> <span>80%</span> </div>
+                               <div className="topBarSkil"><span>NodeJS</span>  </div>
                                <div className="bottombarSkill"> <span className='NodeJS'></span> </div>
                            </div>
                          </div>
                          <div className="divSkill2">
                             <div className="barskilContent">
-                                <div className="topBarSkil"><span>PrismaClient</span> <span >90%</span> </div>
+                                <div className="topBarSkil"><span>PrismaClient</span>  </div>
                                 <div className="bottombarSkill"> <span className='PrismaClient'></span> </div>
                             </div>
                             <div className="barskilContent">
-                               <div className="topBarSkil"><span>PostgreSql</span> <span>90%</span> </div>
+                               <div className="topBarSkil"><span>PostgreSql</span>  </div>
                                <div className="bottombarSkill"> <span className='PostgreSql'></span> </div>
                            </div>
                          </div>
@@ -369,22 +401,18 @@ export default function PortfolioPage() {
                             <form action="">
                                 <div className="containform">
                                     <div className="divInp">
-                                      <input className='inpdivInp' type="text"/>
-                                      <div className="divLabel">Entrer votre nom</div>
+                                      <input className='inpdivInp' type="text" placeholder='Votre nom'/>
                                     </div>
                                     <div className="divInp">
-                                      <input className='inpdivInp' type="text" />
-                                      <div className="divLabel">Entrer votre mail</div>
+                                      <input className='inpdivInp' type="text" placeholder='votre mail'/>
                                     </div>
                                     <div className="divInp">
-                                      <input className='inpdivInp' type="text" />
-                                      <div className="divLabel">Entrer votre sujet</div>
+                                      <input className='inpdivInp' type="text" placeholder='votre sujet' />
                                     </div>
                                     <div className="divInp">
-                                        <textarea className='inpdivInp' name="" id=""></textarea>
-                                      <div className="divLabel messa">Entrer votre Message</div>
+                                       <textarea className='inpdivInp txtErea' name="" id="" placeholder='votre Message'></textarea>
                                     </div>
-                                    <input type="submit" />
+                                    <input className='btnSub' type="submit" />
                                 </div>
                             </form>
                         </div>

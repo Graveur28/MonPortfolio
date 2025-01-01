@@ -1,6 +1,304 @@
 $VertSite:rgb(188, 255, 176,0.5);
+$vertsiteDansBlanc:rgba(59, 234, 0, 0.982);
 
-.blanc{background-color: white !important; color: black !important;}
+$TitSecBlanc: rgb(19, 19, 19);
+$sousTitSecBlanc: rgb(207, 207, 207);
+
+.blanc{
+  transition: 0.4s;
+  background-color: white !important; 
+  color: black !important;
+header{      
+     .containtHeader{
+         .lienRet{
+         }
+         .navigLinks{
+            ul{
+                li{ 
+
+                  }
+                li:after{
+                  background-color: $vertsiteDansBlanc !important;
+                }
+            }
+         }
+     }
+}
+body{
+  .containtBody{
+   .firts{
+      .containtFirts{
+        .pres1{
+           .partGauche{
+              .partgaucheContent{
+                .enVertsite{color: $vertsiteDansBlanc !important;}
+                 .h11{
+                    .wordd{color: rgb(0, 0, 0) !important ; }}
+                 .btss{
+                    .bntac{background-color: $vertsiteDansBlanc !important;}
+                    .rf{border:1px solid rgb(2, 2, 2) !important;background-color: inherit !important; color: rgb(0, 0, 0) !important; cursor: pointer;}
+                 }
+              }
+           }
+        }
+      }
+   }
+   .secApropos{
+     .contebtAprops{
+        .gchht{
+         
+         .titSect{
+          color: $TitSecBlanc !important;
+         }
+         .soutTiSec{
+          color: $sousTitSecBlanc !important;
+         }
+         table{
+           .td1{color: rgb(5, 5, 5) !important;; }
+           td{
+             .gaud{color: rgb(107, 107, 107);}
+           }
+         }
+         h4{
+           color: rgb(0, 0, 0) !important;
+            .spChif{color: $vertsiteDansBlanc !important;}
+         }
+         .btnDowl{background-color: $vertsiteDansBlanc !important;}
+        }
+     }
+   }
+   .secCv{
+     .containtResum{
+        .divContent{
+          .ligneCvrs{ 
+             .bpss{
+              color: black !important;
+               background-color: rgb(82, 82, 82) !important;
+                .containBpss{
+                  .aneee{color: $vertsiteDansBlanc !important;font-size: 29px;font-weight: 800;}
+                }
+             }
+          }
+        }
+        .btnCV{
+         background-color: $vertsiteDansBlanc !important;
+        }
+     }
+   }
+   .secService{
+     .containtServ{
+         .contentBoxSev{
+            .lignebox{
+               .boxServ{
+                 background-color: rgb(67, 67, 67);
+                 cursor: pointer;
+                  span{color: $vertsiteDansBlanc !important;}
+                  .SteticLign{color: $vertsiteDansBlanc !important;}
+               }
+               .boxServ:hover{
+                  span{color:rgb(67, 67, 67) !important;}
+                  .SteticLign{color:rgb(67, 67, 67) !important;}
+               }
+            }
+         }
+     }
+   }
+   .secSkil{
+       .containtSkill{
+          .contentSkill{
+              .fillProgress{animation: fillbar 2s forwards;}
+            .divSkill2{
+             .barskilContent{
+               .topBarSkil{
+               }
+               .bottombarSkill{
+                width: 100%;
+                 height: 40%;
+                 background-color: rgb(71, 71, 71);
+                 border-radius: 6px;
+                 position: relative;
+                 display: flex;
+                 align-items: center;
+                .Javascript{
+                    position: absolute;
+                    background-color: $vertsiteDansBlanc !important;
+                    width: 85%; 
+                    height: 90%;
+                    transition: width 2s ease;
+                  }
+                  .Typescript{
+                   position: absolute;
+                   background-color:$vertsiteDansBlanc !important;
+                   width: 82%; 
+                   height: 90%;
+                   transition: width 2s ease;
+                 }
+                 .Figma{
+                   position: absolute;
+                   background-color: $vertsiteDansBlanc !important;
+                   width: 78%; 
+                   height: 90%;
+                   transition: width 2s ease;
+                 }
+                 .WordPress{
+                   position: absolute;
+                   background-color:$vertsiteDansBlanc !important;
+                   width: 89%; 
+                   height: 90%;
+                   transition: width 2s ease;
+                 }
+                 .Css{
+                   position: absolute;
+                   background-color:$vertsiteDansBlanc !important;
+                   width: 87%; 
+                   height: 90%;
+                   transition: width 2s ease;
+                 }
+                 .Html{
+                   position: absolute;
+                   background-color:$vertsiteDansBlanc !important;
+                   width: 90%; 
+                   height: 90%;
+                   transition: width 2s ease;
+                 }
+                 .NestJS{
+                   background-color: $vertsiteDansBlanc !important;
+                 }
+                 .NodeJS{
+                   background-color: $vertsiteDansBlanc !important;
+                 }
+                 .PrismaClient{
+                   background-color:$vertsiteDansBlanc !important;
+                 }
+                 .PostgreSql{
+                   background-color: $vertsiteDansBlanc !important;
+                 }
+               }
+               
+             }
+            }
+          }
+       }
+   }
+   .secProjet{
+      .contentProjet{
+         .projetcContaint{
+            .caseBox{
+              .divProj1{
+               
+              }
+              
+            }
+         }
+      }
+   }
+
+   .evaluation{
+     opacity:1 !important;
+     color: white !important;
+    //  background:linear-gradient(to bottom,transparent,white) !important;
+    //  z-index: -1 !important;
+     .containtEvalution{
+        .Stats{
+           .boxStat{
+             background-color: rgb(67, 67, 67) !important;
+              .numberStat{ color: $vertsiteDansBlanc !important;}
+           }
+        }
+        .declaFreelancing{
+        .wordDispo{color:$vertsiteDansBlanc !important;}}
+        .btnEmbu{ background-color: $vertsiteDansBlanc !important;}
+     }
+   }
+   .secContact{
+     .containtContact{
+       .cartesAdressContent{
+         .carteAdress{
+             .svgImg{
+               background-color:black !important;
+                .cvg{color:$vertsiteDansBlanc;}
+             }
+         }
+       }
+       .divForm{
+         display: flex;
+         width: 100%;
+         height: 80vh;
+         //padding-top: 120px;
+         .gaucheDivFomr{
+             width: 50%;
+         }
+         .droiteDivForm{
+           width: 50%;
+           background-color: rgb(0, 0, 0) !important;
+           form{
+             .containform{
+               .divInp{
+                 .inpdivInp{
+                 }
+                 input:focus,textarea:focus{border: 1.5px solid rgb(255, 255, 255) !important;transition: 0.5s;}
+                 .txtErea{
+                   height: 80px;
+                 }
+                 
+               }
+               .btnSub{
+                 background-color:$vertsiteDansBlanc !important;
+               }
+             }
+           }
+         }
+       }
+     }
+   }
+
+   .titSect{color: $TitSecBlanc !important;}
+   .soutTiSec{color: $sousTitSecBlanc !important;}
+   
+   .descriC{color: rgb(160, 160, 160);}
+  } 
+}
+footer{
+   color: rgb(0, 0, 0) !important;
+       .containtFooter{
+         .carteFoot{
+           .aProp{
+              color: rgb(203, 203, 203);
+              .titApro{
+               color: white;
+              }
+              .divList{
+                height: 80%;
+                ul{
+                  list-style-type: none;
+                  padding: 0;
+                  margin: 0;
+                  li{
+                    align-items: center;
+                    display: flex;
+                    padding: 2px 1px;
+                     a{
+                      color:inherit;
+                     }
+                  }
+                }
+              }
+              .lsRs{
+                 a{
+                  width: 7%;
+                  .circleSpan{
+                 }
+                 }
+               }
+           }
+         }
+       }
+       .copyR{
+        color: black !important;
+        background-color: rgb(255, 255, 255) !important;
+       }
+}
+}
 .noir{background-color: rgb(0, 0, 0) !important;color: rgb(255, 255, 255) !important;}
 
 
@@ -15,10 +313,7 @@ $VertSite:rgb(188, 255, 176,0.5);
     ;
     header{
         width: 100%;
-        height: 100%;
-        //position: fixed;
-        //z-index: 1;
-        
+        height: 100%;      
          .containtHeader{
             height: 6vh;
             width: 80%;
@@ -28,32 +323,22 @@ $VertSite:rgb(188, 255, 176,0.5);
             background-color: rgb(0, 0, 0,0.5);
             margin: 0 auto;
              .lienRet{
-                width: 20%;
+                width: 15%;
                 span{font-size: 20px;font-weight: 800;}
              }
              .navigLinks{
-                width: 80%;
+                width: 70%;
                 font-size: 18px;
                 ul{
                     width: 100%;
                     display: flex;
                     justify-content: space-around;
                     list-style-type: none;
-                    li{
-                       //box-shadow:2px solid transparent;
-                        //transition: border-color 0.3s ease;
-                        //color: white;  
+                    li{ 
                         position: relative;
                         display: inline-block;
                         text-decoration: none;
-                        //   a{color: white;text-decoration:none;}
-                        //  a:visited{color: $VertSite;}
                     }
-                    // li:hover{
-                    //     //souligner le texte
-                    //     //text-decoration: underline;
-                    //     border-bottom: 2px solid $VertSite;
-                    // }
                     li:after{
                       content: '';
                       position: absolute;
@@ -70,6 +355,10 @@ $VertSite:rgb(188, 255, 176,0.5);
                     }
                 }
              }
+             .btTheme{
+               border-radius: 50%;
+               
+             }
          }
     }
      body{
@@ -83,12 +372,13 @@ $VertSite:rgb(188, 255, 176,0.5);
           align-items: center;
           display: flex;
            .containtFirts{
+            background-color: red;
              width: 80%;
              display: flex;
              .pres1{
               width: 100%;
                display: flex;
-               height: 70vh;
+               height: 45vh;
                font-size: 18px;
                //background-color: red;
                 .partGauche{
@@ -123,6 +413,10 @@ $VertSite:rgb(188, 255, 176,0.5);
                 }
                 .partDroite{
                   width: 50%;
+                  img{
+                    background-size: cover;
+                    background-position: center;
+                  }
                 }
              }
            }
@@ -198,7 +492,7 @@ $VertSite:rgb(188, 255, 176,0.5);
           padding: 50px 0px 50px 0px;
           .containtResum{
             position: relative;
-            width: 80%;
+            width: 85%;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -206,7 +500,7 @@ $VertSite:rgb(188, 255, 176,0.5);
              .divContent{
               padding-top: 20px;
               width: 100%;
-              height: 70vh;
+              height: 90vh;
               display: flex;
               flex-direction: column;
               justify-content: space-between;
@@ -218,6 +512,7 @@ $VertSite:rgb(188, 255, 176,0.5);
                   .bpss{
                     background-color: rgb(67, 67, 67);
                     width: 48.5%;
+                    //height: 100%;
                      .containBpss{
                       padding: 2px 10px;
                       display: flex;
@@ -343,79 +638,75 @@ $VertSite:rgb(188, 255, 176,0.5);
                       position: relative;
                       display: flex;
                       align-items: center;
-
-                     //animation: animate is cubic-bezier(1,0,0,0.1) forwards;
-                     //  transform-origin: left;
-                     //  transform: scaleX(0);
                      .Javascript{
                          position: absolute;
                          background-color: rgb(26, 151, 15);
                          width: 85%; 
                          height: 90%;
-                        // transition: width 2s ease;
+                         transition: width 2s ease;
                        }
                        .Typescript{
                         position: absolute;
                         background-color: rgb(26, 151, 15);
-                        width: 85%; 
+                        width: 82%; 
                         height: 90%;
-                       // transition: width 2s ease;
+                        transition: width 2s ease;
                       }
-                      .Canva{
+                      .Figma{
                         position: absolute;
                         background-color: rgb(26, 151, 15);
-                        width: 85%; 
+                        width: 78%; 
                         height: 90%;
-                       // transition: width 2s ease;
+                        transition: width 2s ease;
                       }
                       .WordPress{
                         position: absolute;
                         background-color: rgb(26, 151, 15);
-                        width: 85%; 
+                        width: 89%; 
                         height: 90%;
-                       // transition: width 2s ease;
+                        transition: width 2s ease;
                       }
                       .Css{
                         position: absolute;
                         background-color: rgb(26, 151, 15);
                         width: 87%; 
                         height: 90%;
-                       // transition: width 2s ease;
+                        transition: width 2s ease;
                       }
                       .Html{
                         position: absolute;
                         background-color: rgb(26, 151, 15);
                         width: 90%; 
                         height: 90%;
-                       // transition: width 2s ease;
+                        transition: width 2s ease;
                       }
                       .NestJS{
                         position: absolute;
                         background-color: rgb(26, 151, 15);
                         width: 85%; 
                         height: 90%;
-                       // transition: width 2s ease;
+                        transition: width 2s ease;
                       }
                       .NodeJS{
                         position: absolute;
                         background-color: rgb(26, 151, 15);
-                        width: 85%; 
+                        width: 75%; 
                         height: 90%;
-                       // transition: width 2s ease;
+                       transition: width 2s ease;
                       }
                       .PrismaClient{
                         position: absolute;
                         background-color: rgb(26, 151, 15);
-                        width: 85%; 
+                        width: 82%; 
                         height: 90%;
-                       // transition: width 2s ease;
+                        transition: width 2s ease;
                       }
                       .PostgreSql{
                         position: absolute;
                         background-color: rgb(26, 151, 15);
-                        width: 85%; 
+                        width: 92%; 
                         height: 90%;
-                       // transition: width 2s ease;
+                        transition: width 2s ease;
                       }
                     }
                     
@@ -475,36 +766,31 @@ $VertSite:rgb(188, 255, 176,0.5);
         }
         .evaluation{
           padding-top: 30px;
-          //background-color: green;
           display: flex; 
           align-items: center; 
           justify-content: center; 
-          background-image: url('../assets//image/3d-rendent-arbre-erable-japonais-ile-herbeuse-dans-ocean-contre-ciel-coucher-soleil_sss1048-4777.jpg');
           opacity: 0.6; 
+          background-image: url('../assets//image/3d-rendent-arbre-erable-japonais-ile-herbeuse-dans-ocean-contre-ciel-coucher-soleil_sss1048-4777.jpg');
           background-size: contain; 
           background-position: top; 
           background-repeat: no-repeat; 
           //background-color: red;  
           height: 480px;
           .containtEvalution{
-             //background-color: red;
-             //padding: 60px 0px 0px 0px;
              width: 80%;
              height:100%;
              display: flex;
              flex-direction: column;
              align-items: center;
-              //justify-content: center;
              .Stats{
               margin-top: -60px;
-              
                width: 100%;
                display: flex;
                justify-content: space-between;
                //padding-bottom: 150px;
                 .boxStat{
                   width: 23%;
-                  height: 12vh;
+                  height: 14vh;
                   background-color: rgb(63, 63, 63);
                   display: flex;
                   flex-direction: column;
@@ -515,6 +801,9 @@ $VertSite:rgb(188, 255, 176,0.5);
                    .numberStat{
                     color: rgb(84, 219, 136);
                     font-size: 34px;
+                    //
+                    //animation: compte 10s steps(10) forwards;
+
                   }
                 }
              }
@@ -611,38 +900,29 @@ $VertSite:rgb(188, 255, 176,0.5);
                       .inpdivInp{
                         position: absolute;
                         width: 80%;
-                        outline: none;
                         font-size: 16px;
                         padding: 0 20px;
-                        line-height: 27px;
-                        border-radius: 0px;
-                        background: transparent;
-                        transition: 0.1s ease;
-                        z-index: 1111;
+                        line-height: 37px;
+                        outline: none;
                       }
+                      input:focus,textarea:focus{border: 1.5px solid black;transition: 0.5s;}
                       .txtErea{
                         height: 80px;
+                        //width: 90%;
                       }
-                      .divLabel{
-                        position: absolute;
-                        font-size: 18px;
-                        color: rgb(255, 255, 255);
-                        background-color: black;
-                        margin: 0 20px;
-                        padding: 0 5px;
-                        transition: 0.2s ease;
-                      }
-                      input:focus,input:valid{
-                        color: green;
-                        border: 4px solid green;
-                      }
-                      input:focus + .divLabel,input:valid + .divLabel{
-                        color: green;
-                        height: 30px;
-                        line-height: 30px;
-                        transform: translate(-15px,-16px) scale(0.88);
-                        z-index: 1111;
-                      }
+                      
+                    }
+                    .btnSub{
+                      width: 40%;
+                      border:none;
+                      padding: 8px 6px;
+                      margin-top:35px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      cursor: pointer;
+                      background-color:rgba(35, 196, 35, 0.521);
+                      font-size: 17px;
                     }
                   }
                 }
@@ -673,12 +953,12 @@ $VertSite:rgb(188, 255, 176,0.5);
     }
     footer{
       display: flex;
+      color: rgb(255, 255, 255);
       align-items: center;
       flex-direction: column;
       justify-content: center;
       width: 100%;
       height: 40vh;
-      //background-color: rgb(72, 84, 53);
        .containtFooter{
         width: 80%;
         height: 90%;
@@ -694,7 +974,6 @@ $VertSite:rgb(188, 255, 176,0.5);
            .aProp{
               width: 23%;
               height: 38vh;
-              //background-color: red;
               color: rgb(203, 203, 203);
               display: flex;
               font-size: 17px;
@@ -728,13 +1007,11 @@ $VertSite:rgb(188, 255, 176,0.5);
                 display: flex;
                  height: 20%;
                  justify-content: space-between;
-                 //background-color: red;
                  a{
                   width: 7%;
                   .circleSpan{
                     width:48%;
                     height: 4.5vh;
-                    //background-color: rebeccapurple;
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -758,11 +1035,29 @@ $VertSite:rgb(188, 255, 176,0.5);
 }
 
 
-// @keyframes fillbar{
-//   from{width: 1%;} to{width: 90;}
-// }
 
 a{
     text-decoration: none;
     color: inherit;
+}
+
+//Incrementer les nombres css
+@keyframes compte{
+  from{content: "0";} to {content: "10";}
+}
+
+
+
+//RESPONSIVE MOBILE
+//TELEPHONE
+@media screen and (max-width:480px){
+
+}
+//TABLETTE portrait
+@media  screen and (min-width:481px) and (max-width:768px) {
+  
+}
+//TABLETTE paysage et petit ORDINATEUR
+@media (min-width:769px) and (max-width:1024px){
+  
 }
