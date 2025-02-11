@@ -14,7 +14,6 @@ import SendIcon from '@mui/icons-material/Send';
 import LanguageIcon from '@mui/icons-material/Language';
 import { useState } from 'react';
 import imgg from '../assets/image/img3.jpg'
-
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -376,8 +375,8 @@ export default function PortfolioPage() {
                     <div className="cartesAdressContent">
                         <div className="carteAdress">
                             <span className="svgImg"><PinDropIcon className='cvg'/></span>
-                            <span>ADRESSE</span>
-                            <span>Kinshasa,Limete 7ieme rue Q/Industriel </span>
+                            <span className="Itadrs">ADRESSE</span>
+                            <span className="adrs">Kinshasa,Limete 7ieme rue Q/Industriel </span>
                         </div>
                         <div className="carteAdress">
                             <span className="svgImg"><PhoneIcon className='cvg'/></span>
