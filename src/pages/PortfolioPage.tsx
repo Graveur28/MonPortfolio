@@ -14,12 +14,11 @@ import SendIcon from '@mui/icons-material/Send';
 import LanguageIcon from '@mui/icons-material/Language';
 import { useState } from 'react';
 import imgg from '../assets/image/img3.jpg'
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
 import ModeNightIcon from '@mui/icons-material/ModeNight';
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
+import MonCv from '../assets/image/ExaucéNYEMBWE_dev.pdf'
 
 
 export default function PortfolioPage() {
@@ -30,13 +29,7 @@ export default function PortfolioPage() {
     //     slidesToShow: 1,
     //     slidesToScroll: 1,
     //   };
-    const settings = {
-        dots: false,
-        infinite: false,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-      };
+
 
     const [stateTheme,setStateTheme]=useState("noir")
     const changeTheme=()=>{
@@ -86,7 +79,7 @@ export default function PortfolioPage() {
          <div className="containtBody">
             <section className="firts" id='secFirst' >
                 <div className="containtFirts">
-                 <Slider {...settings}>
+               
                     {
                         donees.map((d) =>(
                           <div key={d.id} className="pres1">
@@ -121,7 +114,7 @@ export default function PortfolioPage() {
 
                        </div>
                   </div> */}
-                   </Slider>
+                
                  
                 </div>
             </section>
@@ -152,7 +145,7 @@ export default function PortfolioPage() {
                         </table>
                         
                        <h4> <span className='spChif'>+ 32</span> Projects complets</h4>
-                       <button className='btnDowl'>Telecharger le cv </button>
+                       <a className='btnDowl' href={MonCv} download="ExaucéNYEMBWE_dev.pdf" >Telecharger le cv </a>
                      </div>
                 </div>
             </section>
@@ -201,7 +194,7 @@ export default function PortfolioPage() {
                         </div>
                         
                     </div>
-                    <button className='btnCV'>Telecharger cv</button>
+                    <a className='btnCV' href={MonCv} download="ExaucéNYEMBWE_dev.pdf" >Telecharger le cv</a>
                 </div>
             </section>
             <section className='secService' id='secServic'>
