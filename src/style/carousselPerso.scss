@@ -1,0 +1,107 @@
+$VertSite:rgb(188, 255, 176,0.5);
+$vertsiteDansBlanc:rgba(59, 234, 0, 0.982);
+
+$TitSecBlanc: rgb(19, 19, 19);
+$sousTitSecBlanc: rgb(207, 207, 207);
+
+
+.caroussel{
+  transition: background-color 1.4s ,color 1.4s;
+  width: 100%;
+  height:66vh;
+  padding-bottom: 20px;
+ .carousselDetails{
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    height: 100%;
+    .pres1{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+        .partGauche{
+         width: 50%;
+         height: 100%;
+         font-weight: 600;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+           .partgaucheContent{
+               display: flex;
+               flex-direction: column;
+              .enVertsite{color: $vertsiteDansBlanc !important;}
+              .balish5{color: rgb(55, 107, 197);}
+               .h55{
+                  color: rgba(123, 123, 123, 0.979);
+                  .sizEnv{font-size: 23px;} 
+                    }
+              .h11{
+                color: rgba(123, 123, 123, 0.979);
+                 .wordd{font-size: 45px;color: white; }
+                .dataEnv{display: inline-block;margin-left: 35px;}}
+              .btss{
+                width: 80%;
+                display: flex;
+                justify-content: space-between;
+                 .bntac{width: 49%;padding: 7px;font-weight: 600;font-size:14px;background-color: $vertsiteDansBlanc !important; cursor: pointer;border: none;color: white;}
+                 .rf{border:1px solid rgb(255, 255, 255);background-color: inherit !important; cursor: pointer;}
+              }
+           } 
+        }
+        .partDroite{
+         width: 50%;
+         height: 100%;
+          .imgDrt{
+             width: 100%;
+             height: 100%;
+             object-fit: contain;
+          }
+        }
+     }
+    .lesIndicat{
+        justify-content: center;
+        display: flex;
+        align-items: center;
+    }
+
+    .btnCarousselRecent{
+      position: absolute;
+      top: 50%;
+      left: 5px;
+      cursor: pointer;
+      background-color: rgba(247, 247, 247, 0.507);
+      border-radius: 50%;
+    }
+    .btnCarousselSuivant{
+        position: absolute;
+        top: 50%;
+        right: 5px;
+        cursor: pointer;
+        background-color: rgba(247, 247, 247, 0.507);
+        border-radius: 50%;
+      }
+      .fade{animation: fadeIn 1.5s;}
+      @keyframes fadeIn{
+         from{opacity: 0;}
+           to{opacity: 1;}
+       }
+ }
+
+
+
+.Indicateur{
+    background-color: rgb(255, 255, 255);
+    border: none;
+    padding: 4px 4px;
+    margin-left: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.indicInactive{
+    background-color: rgb(112, 112, 112);
+}
+}

@@ -13,23 +13,15 @@ import PinDropIcon from '@mui/icons-material/PinDrop';
 import SendIcon from '@mui/icons-material/Send';
 import LanguageIcon from '@mui/icons-material/Language';
 import { useState } from 'react';
-import imgg from '../assets/image/img3.jpg'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ModeNightIcon from '@mui/icons-material/ModeNight';
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
-import MonCv from '../assets/image/ExaucéNYEMBWE_dev.pdf'
-
+import MonCv from '../assets/image/ExaucéNYEMBWE_dev.pdf';
+import CarousselPerso from '../carrouselPerso/carousselPerso';
+import {data} from '../pages/data'
 
 export default function PortfolioPage() {
-    // const settings = {
-    //     dots: true,
-    //     infinite: true,
-    //     speed: 500,
-    //     slidesToShow: 1,
-    //     slidesToScroll: 1,
-    //   };
-
 
     const [stateTheme,setStateTheme]=useState("noir")
     const changeTheme=()=>{
@@ -37,22 +29,6 @@ export default function PortfolioPage() {
         else{setStateTheme('noir')}
     }
     
-    const donees=[
-        {
-            id:1,
-            text:"developpeur web base a Kinshasa",
-            img:imgg,
-        },
-        {
-            id:2,
-            text:"Exauce NYEMBWE",
-            img:imgg,
-        },
-    ];
-
-    
-
-
   return (
     <div className={`PortfolioPage ${stateTheme} `}>
        <header>
@@ -77,47 +53,9 @@ export default function PortfolioPage() {
        </header>
        <body>
          <div className="containtBody">
-            <section className="firts" id='secFirst' >
-                <div className="containtFirts">
-               
-                    {
-                        donees.map((d) =>(
-                          <div key={d.id} className="pres1">
-                              <div className="partGauche">
-                                 <div className="partgaucheContent">
-                                     <p className='h55'> {"<"}<span className='balish5'>h5</span> {">"} <span className='enVertsite sizEnv'>Salut!</span> {"</"} <span className='balish5'>h5</span>  {">"}</p>
-                                     <p className='h11'> {"<"}<span className='balish5'>h1</span> {">"} <span className='wordd'>je suis <span className='enVertsite'>{d.text}</span> </span> {"<"} <span className='balish5'>h1</span>  {"/>"} </p>
-                                     <div className="btss">
-                                         <button className='bntac'> M'ecouter</button>
-                                         <button className='bntac rf'>Mon travail</button>
-                                     </div>
-                                  </div>
-                              </div>
-                              <div className="partDroite">
-                                  <img src={d.img} alt="" />
-                              </div>
-                          </div>  
-                        ))
-                    }
-                   {/* <div className="pres1">
-                       <div className="partGauche">
-                          <div className="partgaucheContent">
-                               <p className='h55'> {"<"}<span className='balish5'>h5</span> {">"} <span className='enVertsite sizEnv'>Salut!</span> {"</"} <span className='balish5'>h5</span>  {">"}</p>
-                              <p className='h11'> {"<"}<span className='balish5'>h1</span> {">"} <span className='wordd'>je suis <span className='enVertsite'>developpeur web</span>  base <br />  a Kinshasa</span> {"<"} <span className='balish5'>h1</span>  {"/>"} </p>
-                             <div className="btss">
-                                 <button className='bntac'> M'ecouter</button>
-                                 <button className='bntac rf'>Mon travail</button>
-                             </div>
-                          </div>
-                       </div>
-                       <div className="partDroite">
-
-                       </div>
-                  </div> */}
-                
-                 
-                </div>
-            </section>
+             <section className="firts" id='secFirst' >
+                 <CarousselPerso data={data} theme={stateTheme}/>                     
+             </section>
             <section className='secApropos' id='secAprop'>
                  <div className="contebtAprops">
                      <div className="drtt">
@@ -149,7 +87,7 @@ export default function PortfolioPage() {
                      </div>
                 </div>
             </section>
-            {/**Section Resume */}
+
             <section className='secCv' id='secCvc'>
                 <div className="containtResum">
                     <span className='titSect'>Mon cv</span>
@@ -197,6 +135,7 @@ export default function PortfolioPage() {
                     <a className='btnCV' href={MonCv} download="ExaucéNYEMBWE_dev.pdf" >Telecharger le cv</a>
                 </div>
             </section>
+
             <section className='secService' id='secServic'>
                 <div className="containtServ">
                     <span className='titSect'>Services</span>
@@ -240,6 +179,7 @@ export default function PortfolioPage() {
                     </div>
                 </div>
             </section>
+
             <section className='secSkil' id='secSkill'>
                <div className="containtSkill">
                      <span className='titSect'>Mes skills</span>
@@ -299,6 +239,7 @@ export default function PortfolioPage() {
                      </div>
                 </div>  
             </section>
+
             <section className='secProjet' id='secProject'>
                 <div className="contentProjet">
                     <span className='titSect'>Nos projets</span>
@@ -330,8 +271,6 @@ export default function PortfolioPage() {
                     </div>
                 </div>
             </section>
-            
-            <section> {/**Blog ?? */}</section>
 
             <section className='evaluation' id='secEval'>{/**Evalation */}
                 <div className="containtEvalution">
