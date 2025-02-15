@@ -19,7 +19,8 @@ import ModeNightIcon from '@mui/icons-material/ModeNight';
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import MonCv from '../assets/image/ExaucéNYEMBWE_dev.pdf';
 import CarousselPerso from '../carrouselPerso/carousselPerso';
-import {data} from '../pages/data'
+import {data} from '../pages/data';
+
 
 export default function PortfolioPage() {
 
@@ -29,6 +30,11 @@ export default function PortfolioPage() {
         else{setStateTheme('noir')}
     }
     
+    //Menu Burger
+    const [isOpen,setIsOpen]=useState(true)
+    const setOpenstate=()=>{setIsOpen(!isOpen)}
+
+
   return (
     <div className={`PortfolioPage ${stateTheme} `}>
        <header>
@@ -36,7 +42,8 @@ export default function PortfolioPage() {
               <div className="lienRet">
                  <a href=""><span className='lBlz'>Exauce NY.</span></a>
               </div>
-              <div className="navigLinks">
+              <div className={`navigLinks ${isOpen? "hide":"showLis"}`}>
+                {/** */}
                  <ul>
                     <li><a href="secFirst"><span>Acceuil</span></a></li>
                     <li><a href="#secAprop"><span>A propos</span></a></li>
@@ -49,6 +56,13 @@ export default function PortfolioPage() {
                  </ul>
               </div>
               <button className='btTheme' onClick={changeTheme} style={stateTheme === 'noir'? {backgroundColor:'black',color:'white'}: {backgroundColor:'white',color:'black'}} >  {stateTheme ? <ModeNightIcon/> : <WbSunnyIcon/> }</button>
+               <div className="menuBurger">
+                   <div className={isOpen? 'menuButton':'menuButtonOpen'} onClick={()=>setOpenstate()}>
+                     <div className="menuButtonBurger">
+                         
+                     </div>
+                  </div>
+               </div>
           </div>
        </header>
        <body>

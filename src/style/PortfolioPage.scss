@@ -7,7 +7,6 @@ $sousTitSecBlanc: rgb(207, 207, 207);
 
 .noir{transition: background-color 1.4s ,color 1.4s;background-color: rgb(0, 0, 0) !important;color: rgb(255, 255, 255) !important;}
 .blanc{
-  //transition: 0.4s;
   transition: background-color 1.4s ,color 1.4s;
   background-color: white !important; 
   color: black !important;
@@ -286,8 +285,6 @@ footer{
     margin: 0;
     padding: 0;
     transition: background-color 1.4s ,color 1.4s;
-    //background-color: black;
-    //color: rgb(255, 255, 255);
     width: 100%;
     ;
     header{
@@ -334,12 +331,72 @@ footer{
                     }
                 }
              }
-             .btTheme{
-               border-radius: 50%;
-               
-             }
+             .btTheme{border-radius: 50%;}
+             .menuBurger{
+              display: none;
+                 body{
+                     background-color: black;
+                     caret-color: transparent;
+                     display: flex;
+                     justify-content: center;
+                     align-items: center;
+                     min-height: 100vh;
+                   }
+                   .menuButton,
+                   .menuButtonOpen{
+                       position: relative;
+                       display: flex;
+                       justify-content: center;
+                       align-items: center;
+                       width: 80px;
+                       height: 80px;
+                       cursor: pointer;
+                       transition: all 1s ease-in-out;
+                       border: 3px solid #fff;
+                     }
+                   
+                    .menuButtonBurger{
+                       width: 50px;
+                       height: 6px;
+                       background-color: white;
+                       border-radius: 5px;
+                       box-shadow: 0 2px 5px rgba(255,101,47,.2);
+                       transition:all 1s ease-in-out;
+                       }
+                    .menuButtonBurger::before,
+                    .menuButtonBurger::after{
+                      content: '';
+                      position: absolute;
+                      left: 0;
+                      right: 0;
+                      margin-left: auto;
+                      margin-right: auto;
+                      width: 50px;
+                      height: 6px;
+                      background-color: white;
+                      border-radius: 5px;
+                      box-shadow: 0 2px 2px rgba(255,101,47,.2);
+                      transition: all 1s ease-in-out;
+                    }
+                    .menuButtonBurger::before{transform: translateY(-16px);}
+                    .menuButtonBurger::after{transform: translateY(16px);}
+            
+                    .menuButtonOpen .menuButtonBurger{
+                        transform: translateX(-50px);
+                        background: transparent;
+                        box-shadow: none;
+                      }
+                    .menuButtonOpen .menuButtonBurger::before{
+                     transform: rotate(45deg) translate(35px,-35px);
+                    }
+                    .menuButtonOpen .menuButtonBurger::after{
+                        transform: rotate(-45deg) translate(35px,35px);
+                    }
+                     }
+                    }
+                  }
          }
-    }
+    
      body{
        .containtBody{
         .firts{
@@ -966,7 +1023,7 @@ footer{
         background-color: rgb(2, 2, 2);
        }
     }
-}
+
 
 
 
@@ -1663,6 +1720,51 @@ a{
     }
 }
 }
+
+
+
+//Pour le menu burger
+@media screen and (max-width:800px) {
+  .PortfolioPage{
+    header{
+      .containtHeader{
+      .navigLinks{
+        background-color: red;
+        right:-100vw;
+        top: 0;
+        height: 50vh;
+          position: fixed;
+          visibility: hidden;
+        ul{
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         padding: 2rem;
+            li{
+              display: block;
+              padding: 0.5rem;
+              font-size: 18px;
+           }
+        }
+      }
+         .showLis {
+            width: 50vh;
+            right: 0;
+            background-color: blueviolet;
+            visibility: visible;
+            opacity: 999;
+        
+      }
+
+      .menuBurger{
+        display: block;
+      }
+    }
+     }
+  }
+
+}
+
 //TABLETTE portrait
 @media  screen and (min-width:481px) and (max-width:768px) {
   
