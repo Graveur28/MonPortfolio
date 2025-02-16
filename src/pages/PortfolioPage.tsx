@@ -40,7 +40,7 @@ export default function PortfolioPage() {
        <header>
           <div className={`containtHeader ${stateTheme}`}>
               <div className="lienRet">
-                 <a href=""><span className='lBlz'>Exauce NY.</span></a>
+                 <a href="/"><span className='lBlz'>Exauce NY.</span></a>
               </div>
               <div className={`navigLinks ${isOpen? "hide":"showLis"}`}>
                 {/** */}
@@ -51,7 +51,6 @@ export default function PortfolioPage() {
                     <li><a href="#secServic"><span>Services</span></a></li>
                     <li><a href="#secSkill"><span>Skills</span></a></li>
                     <li><a href="#secProject"><span>Projets</span></a></li>
-                    <li><a href=""><span>Mon blog</span></a></li>
                     <li><a href="#secContac" ><span>Contact</span></a></li>
                  </ul>
               </div>
