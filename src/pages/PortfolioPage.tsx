@@ -12,7 +12,7 @@ import XIcon from '@mui/icons-material/X';
 import PinDropIcon from '@mui/icons-material/PinDrop';
 import SendIcon from '@mui/icons-material/Send';
 import LanguageIcon from '@mui/icons-material/Language';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ModeNightIcon from '@mui/icons-material/ModeNight';
@@ -20,13 +20,20 @@ import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import MonCv from '../assets/image/ExaucéNYEMBWE_dev.pdf';
 import CarousselPerso from '../carrouselPerso/carousselPerso';
 import {data} from '../pages/data';
+import Btntop from '../btnTop/btntop';
+import { Link } from 'react-scroll';
+import CountUp from 'react-countup';
+// import { Link as ScrollLink} from 'react-scroll';
+import AOS from 'aos'; 
+import 'aos/dist/aos.css';
+
+
 
 
 export default function PortfolioPage() {
-
     const [stateTheme,setStateTheme]=useState("noir")
     const changeTheme=()=>{
-        if(stateTheme === 'noir'){setStateTheme('blanc') }
+        if(stateTheme === 'noir'){setStateTheme('blanc')}
         else{setStateTheme('noir')}
     }
     
@@ -34,10 +41,25 @@ export default function PortfolioPage() {
     const [isOpen,setIsOpen]=useState(true)
     const setOpenstate=()=>{setIsOpen(!isOpen)}
 
+    //Header
+
+    // const [actifLink,setActifLink]=useState(false);
+
+    // window.addEventListener("scroll",function(){
+    //     if(this.window.scrollY > 100){setActifHeader(true);
+    //     }else{setActifHeader(false)}
+    // });
+
+       //AOS css
+        useEffect(()=>{
+            AOS.init({duration:2300});
+        },[]);
+
 
   return (
-    <div className={`PortfolioPage ${stateTheme} `}>
-       <header>
+        <div className={`PortfolioPage ${stateTheme} `}>
+        <Btntop />
+       <header >
           <div className={`containtHeader ${stateTheme}`}>
               <div className="lienRet">
                  <a href="/"><span className='lBlz'>Exauce NY.</span></a>
@@ -45,13 +67,13 @@ export default function PortfolioPage() {
               <div className={`navigLinks ${isOpen? "hide":"showLis"}`}>
                 {/** */}
                  <ul>
-                    <li><a href="secFirst"><span>Acceuil</span></a></li>
-                    <li><a href="#secAprop"><span>A propos</span></a></li>
-                    <li><a href="#secCvc"><span>Resume</span></a></li>
-                    <li><a href="#secServic"><span>Services</span></a></li>
-                    <li><a href="#secSkill"><span>Skills</span></a></li>
-                    <li><a href="#secProject"><span>Projets</span></a></li>
-                    <li><a href="#secContac" ><span>Contact</span></a></li>
+                    <li><Link to="secFirst" activeClass={"activeClss"}  smooth={true} duration={500} offset={20}><span>Acceuil</span></Link></li>
+                    <li><Link to="secAprop" activeClass={"activeClss"}  smooth={true} duration={500} offset={30}><span>A propos</span></Link></li>
+                    <li><Link to="secCvc" activeClass="activeClss"  smooth={true} duration={500} offset={50}><span>Resume</span></Link></li>
+                    <li><Link to="secServic" activeClass="activeClss"  smooth={true} duration={500} offset={65}><span>Services</span></Link></li>
+                    <li><Link to="secSkill" activeClass="activeClss"  smooth={true} duration={500} offset={75}><span>Skills</span></Link></li>
+                    <li><Link to="secProject" activeClass="activeClss"  smooth={true} duration={500} offset={85}><span>Projets</span></Link></li>
+                    <li><Link to="secContac" activeClass="activeClss"  smooth={true} duration={500} offset={90}><span>Contact</span></Link></li>
                  </ul>
               </div>
               <button className='btTheme' onClick={changeTheme} style={stateTheme === 'noir'? {backgroundColor:'black',color:'white'}: {backgroundColor:'white',color:'black'}} >  {stateTheme ? <ModeNightIcon/> : <WbSunnyIcon/> }</button>
@@ -66,10 +88,12 @@ export default function PortfolioPage() {
        </header>
        <body>
          <div className="containtBody">
+
              <section className="firts" id='secFirst' >
                  <CarousselPerso data={data} theme={stateTheme}/>                     
              </section>
-            <section className='secApropos' id='secAprop'>
+
+            <section data-aos="fade-up"  className='secApropos' id='secAprop'>
                  <div className="contebtAprops">
                      <div className="drtt">
                         <img className='imgIam' src="" alt="" />
@@ -101,40 +125,14 @@ export default function PortfolioPage() {
                 </div>
             </section>
 
-            <section className='secCv' id='secCvc'>
+            <section data-aos="fade-up" className='secCv' id='secCvc'>
                 <div className="containtResum">
                     <span className='titSect'>Mon cv</span>
                     <span className='soutTiSec'>Mon cv</span>
                     <span>Un cours resumer du contenu de mon cv demaontre ici par mon parcours d'etude et mes formations  </span>
                     <div className="divContent">
                         <div className="ligneCvrs">
-                            <div className="bpss">
-                               <div className="containBpss">
-                                  <span className='aneee'>2021-2022</span>
-                                  <span className='diplo'>Diplome d'etat </span>
-                                  <span className='etabl'>College saint raphael</span>
-                                  <span className='resudd'>L'une des grandes ecoles de prestige ans le savoir et l'exxcelence situer Kinsahsa,Limiet 1erer rue BP1800</span>
-                               </div>
-                           </div>
-                           <div className="bpss">
-                              <div className="containBpss">
-                                  <span className='aneee'>2034-5454</span>
-                                  <span className='diplo'>Diplome d'etat </span>
-                                  <span className='etabl'>College saint raphael</span>
-                                  <span className='resudd'>L'une des grandes ecoles de prestige ans le savoir et l'exxcelence situer Kinsahsa,Limiet 1erer rue BP1800</span>
-                               </div>
-                            </div>
-                        </div>
-                        <div className="ligneCvrs">
-                            <div className="bpss">
-                              <div className="containBpss">
-                                  <span className='aneee'>2034-5454</span>
-                                  <span className='diplo'>Diplome d'etat </span>
-                                  <span className='etabl'>College saint raphael</span>
-                                  <span className='resudd'>L'une des grandes ecoles de prestige ans le savoir et l'exxcelence situer Kinsahsa,Limiet 1erer rue BP1800</span>
-                               </div>
-                           </div>
-                           <div className="bpss">
+                        <div className="bpss">
                               <div className="containBpss">
                                   <span className='aneee'>2021-2024</span>
                                   <span className='diplo'>Diplome de licence:GENIE INFORMATIQUE </span>
@@ -142,14 +140,40 @@ export default function PortfolioPage() {
                                   <span className='resudd'>Une university au cursus LMD avec plus ...</span>
                                </div>
                             </div>
+                           <div className="bpss">
+                              <div className="containBpss">
+                                  <span className='aneee'>2022-2022</span>
+                                  <span className='diplo'>Assitant IT</span>
+                                  <span className='etabl'>POLO & MORE</span>
+                                  <span className='resudd'>Veille sur l'e-reputation de la boutique</span>
+                               </div>
+                            </div>
+                        </div>
+                        <div className="ligneCvrs">
+                            <div className="bpss">
+                              <div className="containBpss">
+                                  <span className='aneee'>2021-2022</span>
+                                  <span className='diplo'>Developpeur web </span>
+                                  <span className='etabl'>Bilokos_RDC </span>
+                                  <span className='resudd'> Charge d'asssurer en permance la performance du site </span>
+                               </div>
+                           </div>
+                           <div className="bpss">
+                               <div className="containBpss">
+                                  <span className='aneee'>2021-2022</span>
+                                  <span className='diplo'>Diplome d'etat </span>
+                                  <span className='etabl'>College saint raphael</span>
+                                  <span className='resudd'>L'une des grandes ecoles de prestige dans le savoir et l'excelence situer a Kinsahsa,Limite 1erer rue BP1800</span>
+                               </div>
+                           </div>
                         </div>
                         
                     </div>
-                    <a className='btnCV' href={MonCv} download="ExaucéNYEMBWE_dev.pdf" >Telecharger le cv</a>
+                    <a className='btnCV' href={MonCv} download="ExaucéNYEMBWE_dev.pdf">Telecharger le cv</a>
                 </div>
             </section>
 
-            <section className='secService' id='secServic'>
+            <section data-aos="fade-up"  className='secService' id='secServic'>
                 <div className="containtServ">
                     <span className='titSect'>Services</span>
                     <span className='soutTiSec'>Services</span>
@@ -193,7 +217,7 @@ export default function PortfolioPage() {
                 </div>
             </section>
 
-            <section className='secSkil' id='secSkill'>
+            <section data-aos="fade-up"  className='secSkil' id='secSkill'>
                <div className="containtSkill">
                      <span className='titSect'>Mes skills</span>
                      <span className='soutTiSec'>Skills</span>
@@ -206,7 +230,9 @@ export default function PortfolioPage() {
                             </div>
                             <div className="barskilContent">
                                <div className="topBarSkil"><span>Typescript</span>  </div>
-                               <div className="bottombarSkill"> <span className='Typescript'></span> </div>
+                               <div className="bottombarSkill"> 
+                                 <span className='Typescript'></span>
+                              </div>
                            </div>
                          </div>
                          <div className="divSkill2">
@@ -253,7 +279,7 @@ export default function PortfolioPage() {
                 </div>  
             </section>
 
-            <section className='secProjet' id='secProject'>
+            <section data-aos="fade-up"  className='secProjet' id='secProject'>
                 <div className="contentProjet">
                     <span className='titSect'>Nos projets</span>
                     <span className='soutTiSec'>Projets</span>
@@ -285,23 +311,23 @@ export default function PortfolioPage() {
                 </div>
             </section>
 
-            <section className='evaluation' id='secEval'>{/**Evalation */}
+            <section data-aos="fade-up"  className='evaluation' id='secEval'>
                 <div className="containtEvalution">
                     <div className="Stats">
                         <div className="boxStat">
-                            <span className='numberStat'>10</span>
+                            <span className='numberStat'><CountUp start={0}end={10} duration={3}></CountUp></span>
                             <span>Trophes</span>
                         </div>
                         <div className="boxStat">
-                            <span className='numberStat'>68</span>
+                            <span className='numberStat'><CountUp start={0}end={68} duration={4.75}></CountUp></span>
                             <span>Projets complet</span>
                         </div>
                         <div className="boxStat">
-                            <span className='numberStat'>90 </span>
+                            <span className='numberStat'><CountUp start={0}end={90} duration={5.75}></CountUp></span>
                             <span>clients satisfaits</span>
                         </div>
                         <div className="boxStat">
-                            <span className='numberStat'>354</span>
+                            <span className='numberStat'><CountUp start={0}end={354} duration={6.75}></CountUp></span>
                             <span>Tasses de cafe</span>
                         </div>
                     </div>
@@ -312,7 +338,7 @@ export default function PortfolioPage() {
                 </div>
             </section>
 
-            <section className='secContact' id='secContac'>
+            <section data-aos="fade-up"  className='secContact' id='secContac'>
                 <div className="containtContact">
                     <span className='titSect'>Contactez moi</span>
                     <span className='soutTiSec'>Contact</span>
