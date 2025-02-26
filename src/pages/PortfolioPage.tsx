@@ -21,12 +21,20 @@ import MonCv from '../assets/image/ExaucéNYEMBWE_dev.pdf';
 import CarousselPerso from '../carrouselPerso/carousselPerso';
 import {data} from '../pages/data';
 import Btntop from '../btnTop/btntop';
-import { Link } from 'react-scroll';
 import CountUp from 'react-countup';
-// import { Link as ScrollLink} from 'react-scroll';
 import AOS from 'aos'; 
 import 'aos/dist/aos.css';
-
+import Headroom from 'react-headroom';
+import { Link,animateScroll as scroll } from 'react-scroll';
+import VerticalSplitIcon from '@mui/icons-material/VerticalSplit'; //Web design
+import LensBlurIcon from '@mui/icons-material/LensBlur'; //Sofware
+import WysiwygIcon from '@mui/icons-material/Wysiwyg'; //AppWeb
+import SubtitlesIcon from '@mui/icons-material/Subtitles'; //jsp
+import DeveloperModeIcon from '@mui/icons-material/DeveloperMode'; //Developpemennt
+import CodeIcon from '@mui/icons-material/Code'; //code
+import DesignServicesIcon from '@mui/icons-material/DesignServices'; //web design
+import IntegrationInstructionsIcon from '@mui/icons-material/IntegrationInstructions'; //Integration
+import DoneIcon from '@mui/icons-material/Done'; //check
 
 
 
@@ -41,25 +49,17 @@ export default function PortfolioPage() {
     const [isOpen,setIsOpen]=useState(true)
     const setOpenstate=()=>{setIsOpen(!isOpen)}
 
-    //Header
-
-    // const [actifLink,setActifLink]=useState(false);
-
-    // window.addEventListener("scroll",function(){
-    //     if(this.window.scrollY > 100){setActifHeader(true);
-    //     }else{setActifHeader(false)}
-    // });
-
-       //AOS css
-        useEffect(()=>{
-            AOS.init({duration:2300});
-        },[]);
+    //AOS css
+    useEffect(()=>{
+     AOS.init({duration:2300});
+    },[]);
 
 
   return (
         <div className={`PortfolioPage ${stateTheme} `}>
         <Btntop />
-       <header >
+        <Headroom>
+           <header >
           <div className={`containtHeader ${stateTheme}`}>
               <div className="lienRet">
                  <a href="/"><span className='lBlz'>Exauce NY.</span></a>
@@ -67,13 +67,13 @@ export default function PortfolioPage() {
               <div className={`navigLinks ${isOpen? "hide":"showLis"}`}>
                 {/** */}
                  <ul>
-                    <li><Link to="secFirst" activeClass={"activeClss"}  smooth={true} duration={500} offset={20}><span>Acceuil</span></Link></li>
-                    <li><Link to="secAprop" activeClass={"activeClss"}  smooth={true} duration={500} offset={30}><span>A propos</span></Link></li>
-                    <li><Link to="secCvc" activeClass="activeClss"  smooth={true} duration={500} offset={50}><span>Resume</span></Link></li>
-                    <li><Link to="secServic" activeClass="activeClss"  smooth={true} duration={500} offset={65}><span>Services</span></Link></li>
-                    <li><Link to="secSkill" activeClass="activeClss"  smooth={true} duration={500} offset={75}><span>Skills</span></Link></li>
-                    <li><Link to="secProject" activeClass="activeClss"  smooth={true} duration={500} offset={85}><span>Projets</span></Link></li>
-                    <li><Link to="secContac" activeClass="activeClss"  smooth={true} duration={500} offset={90}><span>Contact</span></Link></li>
+                    <li><Link to="secFirst"  smooth={true} duration={500} offset={20} activeClass=".activeClss" spy={true}>Acceuil</Link></li>
+                    <li><Link to="secAprop" smooth={true} duration={500} offset={30} activeClass=".activeClss" spy={true}><span>A propos</span></Link></li>
+                    <li><Link to="secCvc" smooth={true} duration={500} offset={50} activeClass=".activeClss" spy={true}><span>Resume</span></Link></li>
+                    <li><Link to="secServic" smooth={true} duration={500} offset={65} activeClass=".activeClss" spy={true}><span>Services</span></Link></li>
+                    <li><Link to="secSkill" smooth={true} duration={500} offset={75} activeClass=".activeClss" spy={true}><span>Skills</span></Link></li>
+                    <li><Link to="secProject" smooth={true} duration={500} offset={85} activeClass=".activeClss" spy={true}>Projets</Link></li>
+                    <li><Link to="secContac" smooth={true} duration={500} offset={90} activeClass=".activeClss" spy={true}>Contact</Link></li>
                  </ul>
               </div>
               <button className='btTheme' onClick={changeTheme} style={stateTheme === 'noir'? {backgroundColor:'black',color:'white'}: {backgroundColor:'white',color:'black'}} >  {stateTheme ? <ModeNightIcon/> : <WbSunnyIcon/> }</button>
@@ -85,11 +85,12 @@ export default function PortfolioPage() {
                   </div>
                </div>
           </div>
-       </header>
+           </header>
+        </Headroom>
        <body>
          <div className="containtBody">
-
-             <section className="firts" id='secFirst' >
+         {/* ref={firts} */}
+             <section  className="firts" id='secFirst' >
                  <CarousselPerso data={data} theme={stateTheme}/>                     
              </section>
 
@@ -119,8 +120,8 @@ export default function PortfolioPage() {
                               </td>
                         </table>
                         
-                       <h4> <span className='spChif'>+ 32</span> Projects complets</h4>
-                       <a className='btnDowl' href={MonCv} download="ExaucéNYEMBWE_dev.pdf" >Telecharger le cv </a>
+                       <h4> <span className='spChif'>+<CountUp start={0}end={11} duration={6.75}></CountUp></span> Projects complets</h4>
+                       <a href={MonCv} download="ExaucéNYEMBWE_dev.pdf" ><button className='btnDowl'>Telecharger le cv</button></a>
                      </div>
                 </div>
             </section>
@@ -167,9 +168,8 @@ export default function PortfolioPage() {
                                </div>
                            </div>
                         </div>
-                        
                     </div>
-                    <a className='btnCV' href={MonCv} download="ExaucéNYEMBWE_dev.pdf">Telecharger le cv</a>
+                    <a href={MonCv} download="ExaucéNYEMBWE_dev.pdf"><button className='btnCV'>Telecharger le cv</button></a>
                 </div>
             </section>
 
@@ -181,35 +181,35 @@ export default function PortfolioPage() {
                     <div className="contentBoxSev">
                          <div className="lignebox">
                              <div className="boxServ">
-                                 <img src="" alt="" />
-                                 <span>Web design</span>
-                                 <hr className='SteticLign' />
+                                 <CodeIcon className='customSvg'/>
+                                 <span> Création de sites web</span>
+                                 <hr className='SteticLign'/>
                              </div>
                              <div className="boxServ">
-                                 <img src="" alt="" />
-                                 <span>Web design</span>
+                                 <DeveloperModeIcon className='customSvg'/>
+                                 <span>Développement d'applications web</span>
                                  <hr  className='SteticLign'/>
                              </div>
                              <div className="boxServ">
-                                 <img src="" alt="" />
-                                 <span>Web design</span>
+                                 <SubtitlesIcon className='customSvg'/>
+                                 <span>Optimisation des performances</span>
                                  <hr className='SteticLign' />
                              </div>
                          </div>
                          <div className="lignebox">
                               <div className="boxServ">
-                                 <img src="" alt="" />
+                                 <DesignServicesIcon className='customSvg'/>
                                  <span>Web design</span>
                                  <hr className='SteticLign'/>
                              </div>
                              <div className="boxServ">
-                                 <img src="" alt="" />
-                                 <span>Web design</span>
+                                 <LensBlurIcon className='customSvg' />
+                                 <span>Maintenance et mise à jour</span>
                                  <hr className='SteticLign' />
                              </div>
                              <div className="boxServ">
-                                 <img src="" alt="" />
-                                 <span>Web design</span>
+                                 <IntegrationInstructionsIcon className='customSvg'/>
+                                 <span>Intégration de systèmes tiers</span>
                                  <hr className='SteticLign'/>
                              </div>
                          </div>
@@ -223,56 +223,61 @@ export default function PortfolioPage() {
                      <span className='soutTiSec'>Skills</span>
                      <span className='descriC'>Toute mon experience partagee en une section</span>
                      <div className="contentSkill">
-                         <div className="divSkill2">
+                         <div className="divSkill2 r1">
                             <div className="barskilContent">
-                                <div className="topBarSkil"><span>Javascript</span> </div>
-                                <div className="bottombarSkill"> <span className='Javascript'></span> </div>
+                                <div className="topBarSkil" data-aos="fade-up-right"><DoneIcon/> <span>Javascript</span></div>
                             </div>
                             <div className="barskilContent">
-                               <div className="topBarSkil"><span>Typescript</span>  </div>
-                               <div className="bottombarSkill"> 
-                                 <span className='Typescript'></span>
-                              </div>
+                               <div className="topBarSkil" data-aos="fade-up-left"> <DoneIcon/> <span>Typescript</span>  </div>
                            </div>
                          </div>
-                         <div className="divSkill2">
+                         <div className="divSkill2 r2">
                             <div className="barskilContent">
-                                <div className="topBarSkil"><span>Figma</span>  </div>
-                                <div className="bottombarSkill"> <span className='Figma'></span> </div>
+                                <div className="topBarSkil" data-aos="fade-up-right"><DoneIcon/><span>Figma</span>  </div>
                             </div>
                             <div className="barskilContent">
-                               <div className="topBarSkil"><span>WordPress</span></div>
-                               <div className="bottombarSkill"> <span className='WordPress'></span> </div>
+                               <div className="topBarSkil" data-aos="fade-up-left"><DoneIcon/><span>WordPress</span></div>
                            </div>
                          </div>
-                         <div className="divSkill2">
+                         <div className="divSkill2 r3">
                             <div className="barskilContent">
-                                <div className="topBarSkil"><span>Css</span>  </div>
-                                <div className="bottombarSkill"> <span className='Css'></span> </div>
+                                <div className="topBarSkil" data-aos="fade-up-right"><DoneIcon/><span>Css</span>  </div>
+                                
                             </div>
                             <div className="barskilContent">
-                               <div className="topBarSkil"><span>Html</span>  </div>
-                               <div className="bottombarSkill"> <span className='Html'></span> </div>
+                               <div className="topBarSkil" data-aos="fade-up-left"><DoneIcon/><span>Html</span>  </div>
                            </div>
                          </div>
-                         <div className="divSkill2">
+                         <div className="divSkill2 r4">
                             <div className="barskilContent">
-                                <div className="topBarSkil"><span>NestJS</span> </div>
-                                <div className="bottombarSkill"> <span className='NestJS'></span> </div>
+                                <div className="topBarSkil" data-aos="fade-up-right"><DoneIcon/><span>NextJS</span> </div>
                             </div>
                             <div className="barskilContent">
-                               <div className="topBarSkil"><span>NodeJS</span>  </div>
-                               <div className="bottombarSkill"> <span className='NodeJS'></span> </div>
+                               <div className="topBarSkil" data-aos="fade-up-left"><DoneIcon/><span>NodeJS</span>  </div>
                            </div>
                          </div>
-                         <div className="divSkill2">
+                         <div className="divSkill2 r5">
                             <div className="barskilContent">
-                                <div className="topBarSkil"><span>PrismaClient</span>  </div>
-                                <div className="bottombarSkill"> <span className='PrismaClient'></span> </div>
+                                <div className="topBarSkil" data-aos="fade-up-right"><DoneIcon/><span>PrismaClient</span>  </div>
                             </div>
                             <div className="barskilContent">
-                               <div className="topBarSkil"><span>PostgreSql</span>  </div>
-                               <div className="bottombarSkill"> <span className='PostgreSql'></span> </div>
+                               <div className="topBarSkil" data-aos="fade-up-left"><DoneIcon/><span>PostgreSql</span>  </div>
+                           </div>
+                         </div>
+                         <div className="divSkill2 r6">
+                            <div className="barskilContent">
+                                <div className="topBarSkil" data-aos="fade-up-right"><DoneIcon/><span>Php</span>  </div>
+                            </div>
+                            <div className="barskilContent">
+                               <div className="topBarSkil" data-aos="fade-up-left"><DoneIcon/><span>Tailwind</span>  </div>
+                           </div>
+                         </div>
+                         <div className="divSkill2 r7">
+                            <div className="barskilContent">
+                                <div className="topBarSkil" data-aos="fade-up-right"><DoneIcon/><span>Django</span>  </div>
+                            </div>
+                            <div className="barskilContent">
+                               <div className="topBarSkil" data-aos="fade-up-left"><DoneIcon/><span>ReactJs</span>  </div>
                            </div>
                          </div>
                      </div>

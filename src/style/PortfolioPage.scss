@@ -314,7 +314,7 @@ footer{
                     list-style-type: none;
                     li{ 
                         position: relative;
-                        display: inline-block;
+                        //display: inline-block;
                         text-decoration: none;
                     }
                     li:after{
@@ -528,11 +528,13 @@ footer{
                   }
                }
              }
+
              .btnCV{
               margin-top: 25px;
-              width:  19%;
+              width:  100%;
+              font-weight: 600;
               border: none;
-              height: 6vh;
+              padding: 8px;
               cursor: pointer;
               background-color: $VertSite;
               font-size: 17px;
@@ -580,12 +582,18 @@ footer{
                       cursor: pointer;
                        span{color: $VertSite;}
                        .SteticLign{color: $VertSite;width: 17%;}
+                       span{font-size: 17px;}
+                       .customSvg{
+                          font-size: 50px;
+                          padding-bottom: 14px;
+                       }
                     }
                     .boxServ:hover{
                        background-color: $VertSite;
                        transition: 0.5s;
                        color: black;
                        span{color: black;transition: 0.5s;}
+                       .customSvg{transform: scale(1.2);transition: 0.5s;}
                        .SteticLign{color:rgb(0, 0, 0);transition: 0.5s;}
                     }
                  }
@@ -613,107 +621,36 @@ footer{
                    justify-content: center;
                    align-items: center;
                    flex-direction: column;
-                   .fillProgress{animation: fillbar 2s forwards;}
+                   .r1{width: 30%;}
+                   .r2{width: 50%;}
+                   .r3{width: 70%;}
+                   .r4{width: 85%;}
+                   .r5{width: 70%;}
+                   .r6{width: 50%;}
+                   .r7{width: 30%;}
                  .divSkill2{
                   display: flex;
-                  width: 100%;
+                  //width: 100%;
                   justify-content: space-between;
                   padding-bottom: 20px;
+
                   .barskilContent{
                     width: 48%;
                     height: 5.5vh;
-                    //background-color: red;
                     display: flex;
-                    flex-direction:column;
-                    justify-content: space-between;
+                    justify-content: center;
+                    align-items: center;
                     .topBarSkil{
                       width: 98%;
                       height: 60%;
                       display: flex;
                       align-items: center;
-                      justify-content: space-between;
+                      justify-content: center;
                       padding-bottom: 5px;
-                    }
-                    .bottombarSkill{
-                     width: 100%;
-                      height: 40%;
-                      background-color: rgb(71, 71, 71);
-                      border-radius: 6px;
-                      position: relative;
-                      display: flex;
-                      align-items: center;
-                     .Javascript{
-                         position: absolute;
-                         background-color: rgb(26, 151, 15);
-                         width: 85%; 
-                         height: 90%;
-                         transition: width 2s ease;
+                       span{
+                        padding-left: 8px;
                        }
-                       .Typescript{
-                        position: absolute;
-                        background-color: rgb(26, 151, 15);
-                        width: 82%; 
-                        height: 90%;
-                        transition: width 2s ease;
-                      }
-                      .Figma{
-                        position: absolute;
-                        background-color: rgb(26, 151, 15);
-                        width: 78%; 
-                        height: 90%;
-                        transition: width 0.2ms ease-in-out;
-                      }
-                      .WordPress{
-                        position: absolute;
-                        background-color: rgb(26, 151, 15);
-                        width: 89%; 
-                        height: 90%;
-                        transition: width 2s ease;
-                      }
-                      .Css{
-                        position: absolute;
-                        background-color: rgb(26, 151, 15);
-                        width: 87%; 
-                        height: 90%;
-                        transition: width 2s ease;
-                      }
-                      .Html{
-                        position: absolute;
-                        background-color: rgb(26, 151, 15);
-                        width: 90%; 
-                        height: 90%;
-                        transition: width 2s ease;
-                      }
-                      .NestJS{
-                        position: absolute;
-                        background-color: rgb(26, 151, 15);
-                        width: 85%; 
-                        height: 90%;
-                        transition: width 2s ease;
-                      }
-                      .NodeJS{
-                        position: absolute;
-                        background-color: rgb(26, 151, 15);
-                        width: 75%; 
-                        height: 90%;
-                       transition: width 2s ease;
-                      }
-                      .PrismaClient{
-                        position: absolute;
-                        background-color: rgb(26, 151, 15);
-                        width: 82%; 
-                        height: 90%;
-                        transition: width 2s ease;
-                      }
-                      .PostgreSql{
-                        position: absolute;
-                        background-color: rgb(26, 151, 15);
-                        width: 92%; 
-                        height: 90%;
-                        transition: width 2s ease;
-                      }
                     }
-                    
                   }
                  }
                }
@@ -1054,7 +991,14 @@ a{
 // }
 
 
-
+.activeClss{
+  background-color: red;
+  color: blue;
+  font-size: 30px;
+  span{
+    color: red;
+  }
+}
 
 
 //Incrementer les nombres css
