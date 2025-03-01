@@ -5,12 +5,15 @@ $TitSecBlanc: rgb(19, 19, 19);
 $sousTitSecBlanc: rgb(207, 207, 207);
 
 
-.noir{transition: background-color 1.4s ,color 1.4s;background-color: rgb(0, 0, 0) !important;color: rgb(255, 255, 255) !important;}
+.noir{transition: background-color 1.4s ,color 1.4s;background-color: rgb(0, 0, 0) !important;color: rgb(255, 255, 255) !important;
+}
 .blanc{
   transition: background-color 1.4s ,color 1.4s;
   background-color: white !important; 
   color: black !important;
-header{      
+header{   
+  background-color: white !important;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1) !important;
      .containtHeader{
          .navigLinks{
             ul{
@@ -279,6 +282,11 @@ footer{
 }
 }
 
+@media (prefers-color-scheme: noir) {
+  header {
+    box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.1); /* Ombre douce pour le thème sombre */
+  }
+}
 
 
 .PortfolioPage{
@@ -289,23 +297,27 @@ footer{
     ;
     header{
         width: 100%;
-        height: 100%;
         display: flex;
         justify-content: center;
-        align-items: center;      
+        align-items: center;   
+        //z-index: 999;
+        transition: background-color 1.4s ,color 1.4s;
+        background-color: black;
+        box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.1);
          .containtHeader{
-            margin-top: 8px;
-            height: 6vh;
+            padding-top: 8px;
+            height: 9vh;
             width: 80%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: rgb(0, 0, 0,0.5);
              .lienRet{
                 width: 15%;
+                //background-color: aqua;
                 span{font-size: 20px;font-weight: 800;}
              }
              .navigLinks{
+              //background-color: yellow;
                 width: 70%;
                 font-size: 17px;
                 ul{
@@ -407,9 +419,6 @@ footer{
      body{
        .containtBody{
         .firts{
-          // animation: apparait 4s linear ;
-          // animation-timeline: view();
-          // animation-range: entry(0);
           padding-bottom: 30px;
           width: 100%;
           height: 100vh;
@@ -439,7 +448,14 @@ footer{
              .drtt{
               width: 40%;
               height: 100%;
-              //background-color: red;
+              img{
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+              }
              }
              .gchht{
               position: relative;
@@ -520,9 +536,9 @@ footer{
                       flex-direction: column;
                       justify-content: space-around;
                       height: 100%;
-                       .aneee{color: $VertSite;font-size: 29px;font-weight: 800;}
-                       .diplo{}
-                       .etabl{}
+                       .aneee{color: $VertSite;font-size: 30px;font-weight: 800;}
+                       .diplo{font-size: 27px;font-weight: 800;}
+                       .etabl{font-size: 17px;font-weight: 800;}
                        .resudd{}
                      }
                   }
@@ -677,7 +693,6 @@ footer{
                 justify-content: space-between;
                  .caseBox{
                   display: flex;
-                  //background-color: red;
                   height: 27vh;
                   font-size: 17px;
                   font-weight: 600;
@@ -685,12 +700,15 @@ footer{
                   justify-content: space-between;
                    .divProj1{
                     width:35%;
-                    background-color: red;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
                     justify-content: center;
-                    
+                     img{
+                      width: 100%;
+                      height: 100%;
+                      object-fit: contain;
+                     }
                    }
                    .hopp:hover{transition:0.5s;color: rgb(184, 184, 184); background-color: $VertSite;}
                    .divProj2{
@@ -792,7 +810,6 @@ footer{
               display: flex;
               justify-content: space-between;
               .carteAdress{
-                //background-color: red;
                  width: 23%;
                  height: 30vh;
                  display: flex;
@@ -815,9 +832,38 @@ footer{
               display: flex;
               width: 100%;
               height: 80vh;
-              //padding-top: 120px;
               .gaucheDivFomr{
                   width: 50%;
+                   .gaucheDivFormContaint{
+                      margin: 0 auto;
+                      width: 80%;
+                      background-color: rgba(232, 232, 232, 0.578);
+                      border: rgba(0, 0, 0, 0.5);
+                      height: 50%;
+                      border-radius: 8px;
+                      position: relative;
+                       .aginGauchDiv{
+                        position: absolute;
+                        margin-left: 16px;
+                        margin-top: 19px;
+                        width: 100%;
+                        background-color: rgba(216, 216, 216, 0.96);
+                        height: 100%;
+                        border-radius: 8px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                         p{
+                          font-size: 29px;
+                          padding-right: 8px;
+                         }
+                         .twoflech{
+                          background-color: rgb(0, 0, 0,0.5);
+                          border-radius: 50%;
+                          padding: 8px;
+                         }
+                       }
+                   }
               }
               .droiteDivForm{
                 width: 50%;
@@ -872,6 +918,14 @@ footer{
           }
         }
 
+        .msgDone{
+          background-color: rgb(129, 255, 129);
+          color: white;
+        }
+        .msgFailed{
+          background-color: red;
+          color: white;
+        }
 
         .titSect{
           font-weight: 800;
@@ -982,30 +1036,11 @@ a{
     color: inherit;
 }
 
-//header
-// .actHeader{
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
-// }
-
-
-.activeClss{
-  background-color: red;
-  color: blue;
-  font-size: 30px;
-  span{
-    color: red;
-  }
-}
-
 
 //Incrementer les nombres css
 @keyframes compte{
   from{content: "0";} to {content: "10";}
 }
-
 
 
 //RESPONSIVE MOBILE
@@ -1695,7 +1730,6 @@ a{
 @media screen and (max-width:800px) {
   .PortfolioPage{
     header{
-      //position: fixed;
       .containtHeader{
         position: relative;
       .navigLinks{
@@ -1756,11 +1790,6 @@ a{
   
 }
 
-//Appear
-// @keyframes apparait{
-//   from{opacity: 0;scale: 0.5;}
-//     to{opacity: 1;scale: 1;}
-// }
 
 //scrollView
 @keyframes scrollReveal{

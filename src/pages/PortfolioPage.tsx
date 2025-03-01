@@ -12,7 +12,7 @@ import XIcon from '@mui/icons-material/X';
 import PinDropIcon from '@mui/icons-material/PinDrop';
 import SendIcon from '@mui/icons-material/Send';
 import LanguageIcon from '@mui/icons-material/Language';
-import { useEffect, useState } from 'react';
+import { FormEvent, useEffect, useRef, useState } from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ModeNightIcon from '@mui/icons-material/ModeNight';
@@ -25,18 +25,19 @@ import CountUp from 'react-countup';
 import AOS from 'aos'; 
 import 'aos/dist/aos.css';
 import Headroom from 'react-headroom';
-import { Link,animateScroll as scroll } from 'react-scroll';
-import VerticalSplitIcon from '@mui/icons-material/VerticalSplit'; //Web design
-import LensBlurIcon from '@mui/icons-material/LensBlur'; //Sofware
-import WysiwygIcon from '@mui/icons-material/Wysiwyg'; //AppWeb
+import { Link  } from 'react-scroll';
+import LensBlurIcon from '@mui/icons-material/LensBlur'; //Sofware//AppWeb
 import SubtitlesIcon from '@mui/icons-material/Subtitles'; //jsp
 import DeveloperModeIcon from '@mui/icons-material/DeveloperMode'; //Developpemennt
 import CodeIcon from '@mui/icons-material/Code'; //code
 import DesignServicesIcon from '@mui/icons-material/DesignServices'; //web design
 import IntegrationInstructionsIcon from '@mui/icons-material/IntegrationInstructions'; //Integration
 import DoneIcon from '@mui/icons-material/Done'; //check
-
-
+import emailjs from '@emailjs/browser';
+import { ToastContainer, toast } from 'react-toastify';
+import frontMe from '../assets/image/dessME.png'
+import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
+import bilokos from '../assets/image/billokoa.png'
 
 export default function PortfolioPage() {
     const [stateTheme,setStateTheme]=useState("noir")
@@ -54,42 +55,63 @@ export default function PortfolioPage() {
      AOS.init({duration:2300});
     },[]);
 
+    //Formulaire
+    const form = useRef<HTMLFormElement>(null);
+
+  const sendEmail = (e:FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+     
+    if(!form.current) return;
+
+    emailjs
+      .sendForm('service_atji726', 'Yservice_atji726', form.current, {
+        publicKey: '2Wc3vxd73eAwe72XT',})
+      .then(() => {
+          console.log('SUCCES!');
+          toast.success("✅ Message envoyé avec succès !", { className: "msgDone",});
+        },(error) => {
+          console.log('ECHEC...', error.text);
+          toast.error("❌ Erreur lors de l'envoi du message.",{className: "msgFailed",});
+        },
+      );
+  };
+
 
   return (
         <div className={`PortfolioPage ${stateTheme} `}>
         <Btntop />
         <Headroom>
            <header >
-          <div className={`containtHeader ${stateTheme}`}>
-              <div className="lienRet">
-                 <a href="/"><span className='lBlz'>Exauce NY.</span></a>
-              </div>
-              <div className={`navigLinks ${isOpen? "hide":"showLis"}`}>
-                {/** */}
-                 <ul>
-                    <li><Link to="secFirst"  smooth={true} duration={500} offset={20} activeClass=".activeClss" spy={true}>Acceuil</Link></li>
-                    <li><Link to="secAprop" smooth={true} duration={500} offset={30} activeClass=".activeClss" spy={true}><span>A propos</span></Link></li>
-                    <li><Link to="secCvc" smooth={true} duration={500} offset={50} activeClass=".activeClss" spy={true}><span>Resume</span></Link></li>
-                    <li><Link to="secServic" smooth={true} duration={500} offset={65} activeClass=".activeClss" spy={true}><span>Services</span></Link></li>
-                    <li><Link to="secSkill" smooth={true} duration={500} offset={75} activeClass=".activeClss" spy={true}><span>Skills</span></Link></li>
-                    <li><Link to="secProject" smooth={true} duration={500} offset={85} activeClass=".activeClss" spy={true}>Projets</Link></li>
-                    <li><Link to="secContac" smooth={true} duration={500} offset={90} activeClass=".activeClss" spy={true}>Contact</Link></li>
-                 </ul>
-              </div>
-              <button className='btTheme' onClick={changeTheme} style={stateTheme === 'noir'? {backgroundColor:'black',color:'white'}: {backgroundColor:'white',color:'black'}} >  {stateTheme ? <ModeNightIcon/> : <WbSunnyIcon/> }</button>
-               <div className="menuBurger">
-                   <div className={isOpen? 'menuButton':'menuButtonOpen'} onClick={()=>setOpenstate()}>
-                     <div className="menuButtonBurger">
+              <div className={`containtHeader ${stateTheme}`}>
+                 <div className="lienRet">
+                    <a href="/"><span className='lBlz'>Exauce NY.</span></a>
+                 </div>
+                 <div className={`navigLinks ${isOpen? "hide":"showLis"}`}>
+                   {/** */}
+                    <ul>
+                       <li><Link to="secFirst"  smooth={true} duration={500} offset={20} activeClass=".activeClss" spy={true}>Acceuil</Link></li>
+                       <li><Link to="secAprop" smooth={true} duration={500} offset={30} activeClass=".activeClss" spy={true}><span>A propos</span></Link></li>
+                       <li><Link to="secCvc" smooth={true} duration={500} offset={50} activeClass=".activeClss" spy={true}><span>Resume</span></Link></li>
+                       <li><Link to="secServic" smooth={true} duration={500} offset={65} activeClass=".activeClss" spy={true}><span>Services</span></Link></li>
+                       <li><Link to="secSkill" smooth={true} duration={500} offset={75} activeClass=".activeClss" spy={true}><span>Skills</span></Link></li>
+                       <li><Link to="secProject" smooth={true} duration={500} offset={85} activeClass=".activeClss" spy={true}>Projets</Link></li>
+                       <li><Link to="secContac" smooth={true} duration={500} offset={90} activeClass=".activeClss" spy={true}>Contact</Link></li>
+                    </ul>
+                 </div>
+                 <button className='btTheme' onClick={changeTheme} style={stateTheme === 'noir'? {backgroundColor:'black',color:'white'}: {backgroundColor:'white',color:'black'}} >  {stateTheme ? <ModeNightIcon/> : <WbSunnyIcon/> }</button>
+                  <div className="menuBurger">
+                      <div className={isOpen? 'menuButton':'menuButtonOpen'} onClick={()=>setOpenstate()}>
+                        <div className="menuButtonBurger">
                          
+                        </div>
                      </div>
                   </div>
-               </div>
-          </div>
+             </div>
            </header>
         </Headroom>
        <body>
          <div className="containtBody">
-         {/* ref={firts} */}
+
              <section  className="firts" id='secFirst' >
                  <CarousselPerso data={data} theme={stateTheme}/>                     
              </section>
@@ -97,7 +119,7 @@ export default function PortfolioPage() {
             <section data-aos="fade-up"  className='secApropos' id='secAprop'>
                  <div className="contebtAprops">
                      <div className="drtt">
-                        <img className='imgIam' src="" alt="" />
+                        <img className='imgIam' src={frontMe} alt="" />
                      </div>
                      <div className="gchht">
                         <span className='titSect'>A propos</span>
@@ -130,15 +152,18 @@ export default function PortfolioPage() {
                 <div className="containtResum">
                     <span className='titSect'>Mon cv</span>
                     <span className='soutTiSec'>Mon cv</span>
-                    <span>Un cours resumer du contenu de mon cv demaontre ici par mon parcours d'etude et mes formations  </span>
+                    <span>Un cours résumer du contenu de mon cv démontrant ici par mon parcours d'étude et mes formations  </span>
                     <div className="divContent">
                         <div className="ligneCvrs">
                         <div className="bpss">
                               <div className="containBpss">
                                   <span className='aneee'>2021-2024</span>
-                                  <span className='diplo'>Diplome de licence:GENIE INFORMATIQUE </span>
+                                  <span className='diplo'>GENIE INFORMATIQUE </span>
                                   <span className='etabl'>LEADERSHIP ACADEMIA UNIVERSITY</span>
-                                  <span className='resudd'>Une university au cursus LMD avec plus ...</span>
+                                  <span className='resudd'>Un établissement d'excellence reconnu pour son 
+                                    engagement envers l'innovation technologique par des formations axées sur la pratique et des projets concrets,
+                                    a faire  acquérir en compétences solides en développement web et en ingénierie logicielle
+                                    </span>
                                </div>
                             </div>
                            <div className="bpss">
@@ -146,7 +171,10 @@ export default function PortfolioPage() {
                                   <span className='aneee'>2022-2022</span>
                                   <span className='diplo'>Assitant IT</span>
                                   <span className='etabl'>POLO & MORE</span>
-                                  <span className='resudd'>Veille sur l'e-reputation de la boutique</span>
+                                  <span className='resudd'> En tant qu’Assistant IT, j’ai eu l’opportunité de surveiller et d’analyser la réputation de la boutique en ligne
+                                     grâce à des outils de suivi et de gestion des avis clients,contribuant à l’amélioration de l’image de marque et
+                                     à la résolution proactive des problèmes techniques.
+                                  </span>
                                </div>
                             </div>
                         </div>
@@ -156,7 +184,11 @@ export default function PortfolioPage() {
                                   <span className='aneee'>2021-2022</span>
                                   <span className='diplo'>Developpeur web </span>
                                   <span className='etabl'>Bilokos_RDC </span>
-                                  <span className='resudd'> Charge d'asssurer en permance la performance du site </span>
+                                  <span className='resudd'>
+                                    Participation à la conception et à l’optimisation de l'application web moderne 
+                                    avec role de développer des interfaces réactives,améliorer l’expérience utilisateur
+                                     et assurer la performance de la plateforme. 
+                                 </span>
                                </div>
                            </div>
                            <div className="bpss">
@@ -164,7 +196,12 @@ export default function PortfolioPage() {
                                   <span className='aneee'>2021-2022</span>
                                   <span className='diplo'>Diplome d'etat </span>
                                   <span className='etabl'>College saint raphael</span>
-                                  <span className='resudd'>L'une des grandes ecoles de prestige dans le savoir et l'excelence situer a Kinsahsa,Limite 1erer rue BP1800</span>
+                                  <span className='resudd'>
+                                   En section Mathématiques-Physique,une formation qui m’a permis de développer 
+                                   une solide base en raisonnement logique et en résolution de problèmes. 
+                                   Renforcant ainsi ma rigueur analytique,des compétences essentielles 
+                                    que j’applique aujourd’hui dans le développement web et l’ingénierie logicielle.
+                                  </span>
                                </div>
                            </div>
                         </div>
@@ -221,7 +258,7 @@ export default function PortfolioPage() {
                <div className="containtSkill">
                      <span className='titSect'>Mes skills</span>
                      <span className='soutTiSec'>Skills</span>
-                     <span className='descriC'>Toute mon experience partagee en une section</span>
+                     <span className='descriC'>Toute mon expérience partagée en une section</span>
                      <div className="contentSkill">
                          <div className="divSkill2 r1">
                             <div className="barskilContent">
@@ -288,12 +325,12 @@ export default function PortfolioPage() {
                 <div className="contentProjet">
                     <span className='titSect'>Nos projets</span>
                     <span className='soutTiSec'>Projets</span>
-                    <span className='descriC'>Des liens vers nos projets realises</span>
+                    <span className='descriC'>Des liens vers les projets réalisés</span>
                     <div className="projetcContaint">
                         <div className="caseBox">
                            <div className="divProj1 hopp">
-                               <img src="" alt="" />
-                               <span className='wdHidd'> <a href="">Web design et developpement</a></span>
+                               <img src={bilokos} alt="" />
+                               <span className='wdHidd'> <a href="https://bilokos.shop/">Web design et developpement</a></span>
                                <span className='wdHidd'>Bilokos Rdc</span>
                            </div>
                            <div className="divProj2 hopp">
@@ -306,7 +343,7 @@ export default function PortfolioPage() {
                            <div className="divProj2 hopp">
                                 <img src="" alt="" />
                                 <span className='wdHidd'> <a href="">Web design et developpement full Stack</a></span>
-                                <span className='wdHidd'>Agence de voyage El-Celha</span>
+                                <span className='wdHidd'>Steven food</span>
                             </div>
                            <div className="divProj1 hopp">
                                <span> ... autres</span>
@@ -371,21 +408,26 @@ export default function PortfolioPage() {
                         </div>
                     </div>
                     <div className="divForm">
-                        <div className="gaucheDivFomr"><img src="" alt="" /></div>
+                        <ToastContainer position="top-right" autoClose={3000} />
+                        <div className="gaucheDivFomr">
+                            <div className="gaucheDivFormContaint">
+                                <div className="aginGauchDiv">
+                                    <p>Contactez moi</p>
+                                     <KeyboardDoubleArrowRightIcon className='twoflech'/>
+                                </div>
+                            </div>
+                        </div>
                         <div className="droiteDivForm">
-                            <form action="">
+                            <form action="" ref={form} onSubmit={sendEmail} >
                                 <div className="containform">
                                     <div className="divInp">
-                                      <input className='inpdivInp' type="text" placeholder='Votre nom'/>
+                                      <input className='inpdivInp' name='name' type="text" placeholder='Votre nom' required/>
                                     </div>
                                     <div className="divInp">
-                                      <input className='inpdivInp' type="text" placeholder='votre mail'/>
+                                      <input className='inpdivInp' name='mail' type="mail" placeholder='votre mail' required/>
                                     </div>
                                     <div className="divInp">
-                                      <input className='inpdivInp' type="text" placeholder='votre sujet' />
-                                    </div>
-                                    <div className="divInp">
-                                       <textarea className='inpdivInp txtErea' name="" id="" placeholder='votre Message'></textarea>
+                                       <textarea className='inpdivInp txtErea' name="message" id="" placeholder='votre Message' required></textarea>
                                     </div>
                                     <input className='btnSub' type="submit" />
                                 </div>
