@@ -121,7 +121,7 @@ $sousTitSecBlanc: rgb(207, 207, 207);
         justify-content: center;
           .partGauche{
            position: absolute;
-           z-index: 1;
+           z-index:2;
            width: 100%;
            height: 100%;
            font-weight: 600;
@@ -138,8 +138,9 @@ $sousTitSecBlanc: rgb(207, 207, 207);
                 .enVertsite{color: $vertsiteDansBlanc !important;}
                 .balish5{color: rgb(55, 107, 197);}
                  .h55{
+                  //font-size: px;
                     color: rgba(123, 123, 123, 0.979);
-                    .sizEnv{font-size: 23px;} 
+                    .sizEnv{font-size: 13px;} 
                       }
                 .h11{
                   color: rgba(123, 123, 123, 0.979);
@@ -158,6 +159,7 @@ $sousTitSecBlanc: rgb(207, 207, 207);
            position: absolute;
            width: 80%;
            height: 100%;
+           //z-index: 1;
             .imgDrt{
                width: 100%;
                height: 100%;

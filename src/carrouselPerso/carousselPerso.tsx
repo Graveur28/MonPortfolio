@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import '../style/carousselPerso.scss'
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import { Link } from 'react-scroll';
 
 
 interface Idata {
@@ -39,8 +40,8 @@ export default  function CarousselPerso({data,theme}:{data:Idata[],theme:string}
                        <p className='h55'> {"<"}<span className='balish5'>h5</span> {">"} <span className='enVertsite sizEnv'>Salut!</span> {"</"} <span className='balish5'>h5</span>  {">"}</p>
                        <p className='h11'> {"<"}<span className='balish5'>h1</span> {">"} <span className='wordd'>je suis <span className='dataEnv enVertsite'>{data[indCourent].textsup? data[indCourent].textsup : "" }</span> </span> {"<"} <span className='balish5'>h1</span>  {"/>"} </p>
                        <div className="btss">
-                          <button className='bntac'> M'ecouter</button>
-                          <button className='bntac rf'>Mon travail</button>
+                          <button className='bntac'><Link to="footer" smooth={true} duration={500} offset={20} spy={true}>Me suivre</Link> </button>
+                          <button className='bntac rf'><Link to="secProject" smooth={true} duration={500} offset={20} spy={true}>Mon travail</Link></button>
                        </div>
                   </div>
               </div>

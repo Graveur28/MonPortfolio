@@ -4,7 +4,6 @@ import EmailIcon from '@mui/icons-material/Email';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneIcon from '@mui/icons-material/Phone';
 import FacebookIcon from '@mui/icons-material/Facebook';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -37,7 +36,9 @@ import emailjs from '@emailjs/browser';
 import { ToastContainer, toast } from 'react-toastify';
 import frontMe from '../assets/image/dessME.png'
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
-import bilokos from '../assets/image/billokoa.png'
+import bilokos from '../assets/image/billokoa.png';
+import yaTout from '../assets/image/Capture d’écran (203).png';
+import stevenFood from '../assets/image/logo.jpg';
 
 export default function PortfolioPage() {
     const [stateTheme,setStateTheme]=useState("noir")
@@ -48,12 +49,22 @@ export default function PortfolioPage() {
     
     //Menu Burger
     const [isOpen,setIsOpen]=useState(true)
-    const setOpenstate=()=>{setIsOpen(!isOpen)}
+    //const setOpenstate=()=>{setIsOpen(!isOpen)}
 
     //AOS css
     useEffect(()=>{
      AOS.init({duration:2300});
     },[]);
+
+
+    //arret scroll
+    useEffect(() => {
+        if (isOpen) {document.body.classList.remove("dontScroll");} 
+        else {document.body.classList.add("dontScroll");}
+        return () => {
+          document.body.classList.remove("dontScroll"); };
+      }, [isOpen]);
+
 
     //Formulaire
     const form = useRef<HTMLFormElement>(null);
@@ -78,29 +89,28 @@ export default function PortfolioPage() {
 
 
   return (
-        <div className={`PortfolioPage ${stateTheme} `}>
+        <div className={`PortfolioPage ${stateTheme} poppins-light  `}>
         <Btntop />
         <Headroom>
            <header >
-              <div className={`containtHeader ${stateTheme}`}>
+              <div  className={`containtHeader ${stateTheme}`}>
                  <div className="lienRet">
                     <a href="/"><span className='lBlz'>Exauce NY.</span></a>
                  </div>
-                 <div className={`navigLinks ${isOpen? "hide":"showLis"}`}>
-                   {/** */}
+                 <div  className={`navigLinks ${isOpen? "hide":"showLis"}`}>
                     <ul>
-                       <li><Link to="secFirst"  smooth={true} duration={500} offset={20} activeClass=".activeClss" spy={true}>Acceuil</Link></li>
-                       <li><Link to="secAprop" smooth={true} duration={500} offset={30} activeClass=".activeClss" spy={true}><span>A propos</span></Link></li>
-                       <li><Link to="secCvc" smooth={true} duration={500} offset={50} activeClass=".activeClss" spy={true}><span>Resume</span></Link></li>
-                       <li><Link to="secServic" smooth={true} duration={500} offset={65} activeClass=".activeClss" spy={true}><span>Services</span></Link></li>
-                       <li><Link to="secSkill" smooth={true} duration={500} offset={75} activeClass=".activeClss" spy={true}><span>Skills</span></Link></li>
-                       <li><Link to="secProject" smooth={true} duration={500} offset={85} activeClass=".activeClss" spy={true}>Projets</Link></li>
-                       <li><Link to="secContac" smooth={true} duration={500} offset={90} activeClass=".activeClss" spy={true}>Contact</Link></li>
+                       <li><Link to="secFirst"  smooth={true} duration={500} offset={20} spy={true} onClick={()=>setIsOpen(!isOpen)}>Acceuil</Link></li>
+                       <li><Link to="secAprop" smooth={true} duration={500} offset={30} spy={true} onClick={()=>setIsOpen(!isOpen)}>A propos</Link></li>
+                       <li><Link to="secCvc" smooth={true} duration={500} offset={50} spy={true} onClick={()=>setIsOpen(!isOpen)}>Resume</Link></li>
+                       <li><Link to="secServic" smooth={true} duration={500} offset={65} spy={true} onClick={()=>setIsOpen(!isOpen)}>Services</Link></li>
+                       <li><Link to="secSkill" smooth={true} duration={500} offset={75} spy={true} onClick={()=>setIsOpen(!isOpen)}>Skills</Link></li>
+                       <li><Link to="secProject" smooth={true} duration={500} offset={85} spy={true} onClick={()=>setIsOpen(!isOpen)}>Projets</Link></li>
+                       <li><Link to="secContac" smooth={true} duration={500} offset={90} spy={true} onClick={()=>setIsOpen(!isOpen)}>Contact</Link></li>
                     </ul>
                  </div>
                  <button className='btTheme' onClick={changeTheme} style={stateTheme === 'noir'? {backgroundColor:'black',color:'white'}: {backgroundColor:'white',color:'black'}} >  {stateTheme ? <ModeNightIcon/> : <WbSunnyIcon/> }</button>
-                  <div className="menuBurger">
-                      <div className={isOpen? 'menuButton':'menuButtonOpen'} onClick={()=>setOpenstate()}>
+                  <div  className="menuBurger">
+                      <div className={isOpen? 'menuButton':'menuButtonOpen'} onClick={(e)=>{e.stopPropagation();setIsOpen((prev)=>!prev);}}>
                         <div className="menuButtonBurger">
                          
                         </div>
@@ -112,7 +122,7 @@ export default function PortfolioPage() {
        <body>
          <div className="containtBody">
 
-             <section  className="firts" id='secFirst' >
+             <section  className={`firts ${isOpen? "":"hiddFirt"}`} id='secFirst' >
                  <CarousselPerso data={data} theme={stateTheme}/>                     
              </section>
 
@@ -214,39 +224,39 @@ export default function PortfolioPage() {
                 <div className="containtServ">
                     <span className='titSect'>Services</span>
                     <span className='soutTiSec'>Services</span>
-                    <span>Mes services dans les actisn coyurantes</span>
+                    <span>Développement web sur mesure, performant, moderne et adapté aux besoins</span>
                     <div className="contentBoxSev">
                          <div className="lignebox">
                              <div className="boxServ">
                                  <CodeIcon className='customSvg'/>
-                                 <span> Création de sites web</span>
+                                 <span className='nimmme'> Création de sites web</span>
                                  <hr className='SteticLign'/>
                              </div>
                              <div className="boxServ">
                                  <DeveloperModeIcon className='customSvg'/>
-                                 <span>Développement d'applications web</span>
+                                 <span className='nimmme'>Développement d'applications web</span>
                                  <hr  className='SteticLign'/>
                              </div>
                              <div className="boxServ">
                                  <SubtitlesIcon className='customSvg'/>
-                                 <span>Optimisation des performances</span>
+                                 <span className='nimmme'>Optimisation des performances</span>
                                  <hr className='SteticLign' />
                              </div>
                          </div>
                          <div className="lignebox">
                               <div className="boxServ">
                                  <DesignServicesIcon className='customSvg'/>
-                                 <span>Web design</span>
+                                 <span className='nimmme'>Web design</span>
                                  <hr className='SteticLign'/>
                              </div>
                              <div className="boxServ">
                                  <LensBlurIcon className='customSvg' />
-                                 <span>Maintenance et mise à jour</span>
+                                 <span className='nimmme'>Maintenance et mise à jour</span>
                                  <hr className='SteticLign' />
                              </div>
                              <div className="boxServ">
                                  <IntegrationInstructionsIcon className='customSvg'/>
-                                 <span>Intégration de systèmes tiers</span>
+                                 <span className='nimmme'>Intégration de systèmes tiers</span>
                                  <hr className='SteticLign'/>
                              </div>
                          </div>
@@ -330,20 +340,26 @@ export default function PortfolioPage() {
                         <div className="caseBox">
                            <div className="divProj1 hopp">
                                <img src={bilokos} alt="" />
-                               <span className='wdHidd'> <a href="https://bilokos.shop/">Web design et developpement</a></span>
-                               <span className='wdHidd'>Bilokos Rdc</span>
+                               <div>
+                                 <span className='wdHidd'> <a href="https://bilokos.shop/">Web design et developpement</a></span>
+                                 <span className='wdHidd'>Bilokos Rdc</span>
+                               </div>
                            </div>
                            <div className="divProj2 hopp">
-                               <img src="" alt="" />
-                               <span className='wdHidd'> <a href="">Projet full Stack</a></span>
-                               <span className='wdHidd'>MarketPlace Y'a tout</span>
+                               <img src={yaTout} alt="" />
+                               <div>
+                                 <span className='wdHidd'> <a href="">Projet full Stack</a></span>
+                                 <span className='wdHidd'>MarketPlace Y'a tout</span>
+                               </div>
                            </div>
                         </div>
                         <div className="caseBox">
                            <div className="divProj2 hopp">
-                                <img src="" alt="" />
-                                <span className='wdHidd'> <a href="">Web design et developpement full Stack</a></span>
-                                <span className='wdHidd'>Steven food</span>
+                                <img src={stevenFood} alt="" />
+                                <div>
+                                  <span className='wdHidd uh'> <a href="">Web design et developpement full Stack</a></span>
+                                  <span className='wdHidd'>Steven food</span>
+                                </div>
                             </div>
                            <div className="divProj1 hopp">
                                <span> ... autres</span>
@@ -357,26 +373,26 @@ export default function PortfolioPage() {
                 <div className="containtEvalution">
                     <div className="Stats">
                         <div className="boxStat">
-                            <span className='numberStat'><CountUp start={0}end={10} duration={3}></CountUp></span>
-                            <span>Trophes</span>
+                            <span className='numberStat'><CountUp start={0}end={4} duration={3}></CountUp></span>
+                            <span className='botStt'>Trophées</span>
                         </div>
                         <div className="boxStat">
-                            <span className='numberStat'><CountUp start={0}end={68} duration={4.75}></CountUp></span>
-                            <span>Projets complet</span>
+                            <span className='numberStat'><CountUp start={0}end={14} duration={4.75}></CountUp></span>
+                            <span className='botStt'>Projets complet</span>
                         </div>
                         <div className="boxStat">
-                            <span className='numberStat'><CountUp start={0}end={90} duration={5.75}></CountUp></span>
-                            <span>clients satisfaits</span>
+                            <span className='numberStat'><CountUp start={0}end={20} duration={5.75}></CountUp></span>
+                            <span className='botStt'>clients satisfaits</span>
                         </div>
                         <div className="boxStat">
                             <span className='numberStat'><CountUp start={0}end={354} duration={6.75}></CountUp></span>
-                            <span>Tasses de cafe</span>
+                            <span className='botStt'>Tasses de café</span>
                         </div>
                     </div>
                     <span className='declaFreelancing'>Je suis <span className='wordDispo'>disponible</span>  pour du freelancing</span>
-                    <span className='phrasesCles'>Passionne par le deveopement web,je mets a profit mon savoir et ma creativite pour relever les defis et inover constaments. <br />
-                    Mon parcours diversifier temoigne de ma capacite a m'adapeter rapidemnt et exceller dans des environemnt dynamioques</span>
-                    <button className='btnEmbu'>Embauche-moi</button>
+                    <span className='phrasesCles'>Passionné par le développement web, je mets a profit mon savoir et ma créativité pour relever les défis et innover constamment. <br />
+                    Mon parcours diversifier témoigne de ma capacite a m'adapter rapidement et exceller dans des environnement dynamiques</span>
+                     <button className='btnEmbu'><Link to="secContac" smooth={true} duration={500} offset={90} spy={true}>Embauche-moi</Link></button>
                 </div>
             </section>
 
@@ -438,42 +454,43 @@ export default function PortfolioPage() {
             </section>
          </div>
        </body>
-       <footer>
+       <footer id='footer'>
           <div className="containtFooter">
              <div className="carteFoot">
                  <div className="aProp">
                      <span className='titApro'>A propos de moi</span>
-                     <div className='divList'>Developpeur curieux et en constatnte evolution passionnes des solutions inovantes,je mets mon savoir-faire au service de projet ambitieux </div>
+                     <div className='divList'>Développeur en constante évolution , passionné des solutions innovantes ,je mets mon savoir-faire au service de projet ambitieux </div>
                      <div className="lsRs">
-                         <a href=""><span className='circleSpan'><XIcon/></span></a> 
-                         <a href=""><span className='circleSpan'><WhatsAppIcon/></span></a>
-                         <a href=""><span className='circleSpan'><FacebookIcon/></span></a>
-                         <a href=""><span className='circleSpan'><GitHubIcon/></span></a>
-                         <a href=""><span className='circleSpan'><LinkedInIcon/></span></a>
-                         <a href=""><span className='circleSpan'><InstagramIcon/></span></a>
+                         <a href="https://x.com/cestnke_"><span className='circleSpan'><XIcon/></span></a> 
+                         <a href="https://www.facebook.com/exaudinho.nyembwe/"><span className='circleSpan'><FacebookIcon/></span></a>
+                         <a href="https://github.com/Graveur28"><span className='circleSpan'><GitHubIcon/></span></a>
+                         <a href="https://www.linkedin.com/in/exauc%C3%A9-nyembwe-697613216/"><span className='circleSpan'><LinkedInIcon/></span></a>
+                         <a href="https://www.instagram.com/graveur______/"><span className='circleSpan'><InstagramIcon/></span></a>
                      </div>
                  </div>
                  <div className="aProp">
                      <span className='titApro'>Liens</span>
                      <div className='divList'>
                          <ul>
-                            <li><ArrowRightAltIcon/> <a href=""><span>Acceuil</span></a></li>
-                            <li><ArrowRightAltIcon/> <a href=""><span>A propos</span></a></li>
-                            <li><ArrowRightAltIcon/> <a href=""><span>Services</span></a></li>
-                            <li><ArrowRightAltIcon/> <a href=""><span>Projets</span></a></li>
-                            <li><ArrowRightAltIcon/> <a href=""><span>Contact</span></a></li>
+                            <li><ArrowRightAltIcon/> <Link to="secFirst"  smooth={true} duration={500} offset={20} spy={true}><span>Acceuil</span></Link></li>
+                            <li><ArrowRightAltIcon/> <Link to="secAprop" smooth={true} duration={500} offset={30} spy={true}><span>A propos</span></Link></li>
+                            <li><ArrowRightAltIcon/> <Link to="secServic" smooth={true} duration={500} offset={30} spy={true} ><span>Services</span></Link></li>
+                            <li><ArrowRightAltIcon/> <Link to="secProject" smooth={true} duration={500} offset={30} spy={true}><span>Projets</span></Link></li>
+                            <li><ArrowRightAltIcon/> <Link to="secContac" smooth={true} duration={500} offset={30} spy={true} ><span>Contact</span></Link></li>
                          </ul>
                      </div>
                  </div>
                  <div className="aProp">
                      <span className='titApro'>Services</span>
                      <div className='divList'>
+                         <Link to="secServic" smooth={true} duration={500} offset={30} spy={true}  >
                          <ul>
-                            <li><ArrowRightAltIcon/> <a href=""><span>Developpement web</span></a></li>
-                            <li><ArrowRightAltIcon/> <a href=""><span>web design</span></a></li>
-                            <li><ArrowRightAltIcon/><a href=""><span>Data Analyst</span></a></li>
-                            <li><ArrowRightAltIcon/> <a href=""><span>Analyste programmeur</span></a></li>
+                            <li><ArrowRightAltIcon/> <span>Developpement web</span></li>
+                            <li><ArrowRightAltIcon/> <span>web design</span></li>
+                            <li><ArrowRightAltIcon/><span>Data Analyst</span></li>
+                            <li><ArrowRightAltIcon/> <span>Analyste programmeur</span></li>
                          </ul>
+                         </Link>
                      </div>
                  </div>
                  <div className="aProp">
