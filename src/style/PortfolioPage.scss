@@ -6,8 +6,8 @@ $sousTitSecBlanc: rgb(207, 207, 207);
 
 //:root{--background-color: rgb(0, 0, 0) !important;}
 
-.noir{ transition: background-color 1.4s ,color 1.4s;background-color: rgb(0, 0, 0) !important;color: rgb(255, 255, 255) !important;
-}
+.noir{ transition: background-color 1.4s ,color 1.4s;background-color: rgb(0, 0, 0) !important;color: rgb(255, 255, 255) !important;}
+
 .blanc{
   transition: background-color 1.4s ,color 1.4s;
   background-color: white !important; 
@@ -23,9 +23,14 @@ header{
                 }
             }
          }
+         .menuButtonBurger,
+         .menuButtonBurger::before,
+         .menuButtonBurger::after{
+          background-color: black !important;
+         }
      }
 }
-body{
+
   .containtBody{
     .firts{
       .partgaucheContent{
@@ -53,6 +58,7 @@ body{
          .soutTiSec{
           color: $sousTitSecBlanc !important;
          }
+         .gdgd{color: black !important;}
          table{
            .td1{color: rgb(5, 5, 5) !important;; }
            td{
@@ -178,12 +184,9 @@ body{
           }
        }
    }
-
    .evaluation{
      opacity:1 !important;
      color: white !important;
-    //  background:linear-gradient(to bottom,transparent,white) !important;
-    //  z-index: -1 !important;
      .containtEvalution{
         .Stats{
            .boxStat{
@@ -192,7 +195,9 @@ body{
            }
         }
         .declaFreelancing{
+          color: black !important;
         .wordDispo{color:$vertsiteDansBlanc !important;}}
+        .phrasesCles{color: black !important;}
         .btnEmbu{ background-color: $vertsiteDansBlanc !important;}
      }
    }
@@ -241,15 +246,15 @@ body{
    
    .descriC{color: rgb(160, 160, 160);}
   } 
-}
+
 footer{
    color: rgb(0, 0, 0) !important;
        .containtFooter{
          .carteFoot{
            .aProp{
-              color: rgb(203, 203, 203);
+              color: rgb(6, 6, 6) !important;
               .titApro{
-               color: white;
+               color: rgb(0, 0, 0)  !important;
               }
               .divList{
                 height: 80%;
@@ -1100,704 +1105,6 @@ a{
 
 //RESPONSIVE MOBILE
 //TELEPHONE
-@media screen and (max-width:430px) and (max-width:480px){
- .PortfolioPage{
-
-    header{
-        width: 100%;
-        height: 100%;      
-         .containtHeader{
-            height: 8vh;
-            width: 80%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: rgb(0, 0, 0,0.5);
-            margin: 0 auto;
-             .lienRet{
-                width: 15%;
-                span{font-size: 20px;font-weight: 800;}
-             }
-             .navigLinks{
-                width: 70%;
-                font-size: 18px;
-                ul{
-                    width: 100%;
-                    display: flex;
-                    justify-content: space-around;
-                    list-style-type: none;
-                    li{ 
-                        position: relative;
-                        display: inline-block;
-                        text-decoration: none;
-                    }
-                    li:after{
-                      content: '';
-                      position: absolute;
-                      width: 0;
-                      height: 2px;
-                      bottom: 0;
-                      left: 50%;
-                      background-color: $VertSite;
-                      transition: width 0.4s ease,left 0.4s;
-                    }
-                    li:hover:after{
-                      width: 100%;
-                      left: 0;
-                    }
-                }
-             }
-             .showLis {
-              width: 100%;
-              height: 100vh;
-              right: 0;
-              top:82px;
-              box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);;
-              background-color: rgb(55, 55, 55);
-              visibility: visible;
-              z-index: 9999;
-              position: fixed;
-              opacity: 1;
-              display: flex;
-              flex-direction: column;
-              justify-content: space-around;
-              ul{
-                li{
-                  padding-bottom: 15px;
-                }
-              }
-            }
-             .btTheme{
-               border-radius: 50%;
-               
-             }
-         }
-    }
-     body{
-       .containtBody{
-        .firts{
-          padding-bottom: 30px;
-          width: 100%;
-          justify-content: center;
-          align-items: center;
-          display: flex;
-           .containtFirts{
-            //background-color: red;
-             width: 80%;
-             display: flex;
-             .pres1{
-              width: 100%;
-               display: flex;
-               height: 45vh;
-               font-size: 18px;
-               //background-color: red;
-                .partGauche{
-                  font-weight: 600;
-                   width: 50%;
-                   display: flex;
-                   justify-content: center;
-                   align-items: center;
-                   .partgaucheContent{
-                     display: flex;
-                     flex-direction: column;
-                     .enVertsite{color: $VertSite;}
-                     .balish5{color: rgb(55, 107, 197);
-                      }
-                      .h55{
-                        color: rgba(123, 123, 123, 0.979);
-                        .sizEnv{font-size: 23px;} 
-                      }
-                      .h11{
-                        margin-top: 0;
-                        color: rgba(123, 123, 123, 0.979);
-                         .wordd{color: white;font-size: 45px;}
-                      }
-                      .btss{
-                        width: 80%;
-                        display: flex;
-                        justify-content: space-between;
-                         .bntac{width: 49%;padding: 7px;font-weight: 600;font-size:14px;background-color: $VertSite;border: none;cursor: pointer;}
-                         .rf{border:1px solid white;background-color: inherit; color: white; cursor: pointer;}
-                      }
-                   }
-                }
-                .partDroite{
-                  width: 50%;
-                  img{
-                    background-size: cover;
-                    background-position: center;
-                  }
-                }
-             }
-           }
-        }
-        .secApropos{
-          width: 100%;
-          //height: auto;
-          //background-color: rgb(15, 212, 12);
-          .contebtAprops{
-             display: flex;
-             flex-direction:column;
-             .drtt{ width: 90%;}
-             .gchht{
-              position: relative;
-              width: 90%;
-              height: 100%;
-              color: rgb(141, 141, 141);
-              font-size: 18px;
-              font-weight: 600;
-              //background-color: aquamarine;
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: center;
-              .titSect{
-                font-size: 39px;
-                margin-top: -73px;
-                margin-left: 65px;
-                padding-bottom: 60px;
-              }
-              .soutTiSec{
-                display: flex;
-                top: -80px;
-                //color: white;
-                //bottom: 50px;
-              }
-              table{
-                margin-right: 102px;
-                width: 70%;
-                height: 45%;
-                display: flex;
-                padding-top: 10px;
-                justify-content: space-between;
-                .td1{color: white;}
-                td{
-                  display: flex;
-                  flex-direction: column;
-                  justify-content: space-between;
-                }
-              }
-              h4{
-                font-size: 28px;
-                color: white;
-                 .spChif{color: $VertSite;}
-              }
-              .btnDowl{width: 42%;padding: 8px;border: none;cursor: pointer;font-weight: 600;background-color: $VertSite;font-size: 15px;}
-             }
-          }
-        }
-        .secCv{
-          width: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 50px 0px 50px 0px;
-          .containtResum{
-            position: relative;
-            width: 88%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-             .divContent{
-              padding-top: 20px;
-              width: 100%;
-              height: 90vh;
-              display: flex;
-              flex-direction: column;
-              justify-content: space-between;
-               .ligneCvrs{ 
-                width: 100%;
-                display: flex;
-                 height: 47%;
-                 justify-content: space-between;
-                  .bpss{
-                    background-color: rgb(67, 67, 67);
-                    width: 48.5%;
-                    //height: 100%;
-                     .containBpss{
-                      padding: 2px 10px;
-                      display: flex;
-                      font-size: 15px;
-                      flex-direction: column;
-                      justify-content: space-around;
-                      height: 100%;
-                       .aneee{color: $VertSite;font-size: 29px;font-weight: 800;}
-                     }
-                  }
-               }
-             }
-             .btnCV{
-              margin-top: 25px;
-              width:  26%;
-              border: none;
-              height: 6vh;
-              cursor: pointer;
-              background-color: $VertSite;
-              font-size: 15px;
-             }
-          }
-        }
-        .secService{
-          padding: 50px 0px 50px 0px;
-          width: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          .containtServ{
-             position: relative;
-             width: 90%;
-             display: flex;
-             align-items: center;
-             justify-content: center;
-             flex-direction: column;
-              .contentBoxSev{
-                padding-top: 30px;
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-                height: 60vh;
-                justify-content: space-between;
-                 .lignebox{
-                   display: flex;
-                   width: 100%; 
-                   justify-content: space-between;
-                   height: 46%;
-                    .boxServ{
-                      width: 31%;
-                      background-color: rgb(67, 67, 67);
-                      height: 80%;
-                      justify-content: center;
-                      display: flex;
-                      align-items: center;
-                      flex-direction: column;
-                      font-size: 23px;
-                      font-weight: 600;
-                      cursor: pointer;
-                       span{color: $VertSite;}
-                       .SteticLign{color: $VertSite;width: 17%;}
-                    }
-                    .boxServ:hover{
-                       background-color: $VertSite;
-                       transition: 0.5s;
-                       color: black;
-                       span{color: black;transition: 0.5s;}
-                       .SteticLign{color:rgb(0, 0, 0);transition: 0.5s;}
-                    }
-                 }
-              }
-          }
-        }
-        .secSkil{
-          padding: 80px  0px;
-          width: 100%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-            .containtSkill{
-              font-size: 18px;
-              font-weight: 600;
-              width: 88%;
-              position: relative;
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-               align-items: center;
-               .contentSkill{
-                width: 100%;
-                   display: flex;
-                   justify-content: center;
-                   align-items: center;
-                   flex-direction: column;
-                   .fillProgress{animation: fillbar 2s forwards;}
-                 .divSkill2{
-                  display: flex;
-                  width: 100%;
-                  justify-content: space-between;
-                  padding-bottom: 20px;
-                  .barskilContent{
-                    width: 48%;
-                    height: 5.5vh;
-                    //background-color: red;
-                    display: flex;
-                    flex-direction:column;
-                    justify-content: space-between;
-                    .topBarSkil{
-                      width: 98%;
-                      height: 60%;
-                      display: flex;
-                      align-items: center;
-                      justify-content: space-between;
-                      padding-bottom: 5px;
-                    }
-                    .bottombarSkill{
-                     width: 100%;
-                      height: 40%;
-                      background-color: rgb(71, 71, 71);
-                      border-radius: 6px;
-                      position: relative;
-                      display: flex;
-                      align-items: center;
-                     .Javascript{
-                         position: absolute;
-                         background-color: rgb(26, 151, 15);
-                         width: 85%; 
-                         height: 90%;
-                         transition: width 2s ease;
-                       }
-                       .Typescript{
-                        position: absolute;
-                        background-color: rgb(26, 151, 15);
-                        width: 82%; 
-                        height: 90%;
-                        transition: width 2s ease;
-                      }
-                      .Figma{
-                        position: absolute;
-                        background-color: rgb(26, 151, 15);
-                        width: 78%; 
-                        height: 90%;
-                        transition: width 2s ease;
-                      }
-                      .WordPress{
-                        position: absolute;
-                        background-color: rgb(26, 151, 15);
-                        width: 89%; 
-                        height: 90%;
-                        transition: width 2s ease;
-                      }
-                      .Css{
-                        position: absolute;
-                        background-color: rgb(26, 151, 15);
-                        width: 87%; 
-                        height: 90%;
-                        transition: width 2s ease;
-                      }
-                      .Html{
-                        position: absolute;
-                        background-color: rgb(26, 151, 15);
-                        width: 90%; 
-                        height: 90%;
-                        transition: width 2s ease;
-                      }
-                      .NestJS{
-                        position: absolute;
-                        background-color: rgb(26, 151, 15);
-                        width: 85%; 
-                        height: 90%;
-                        transition: width 2s ease;
-                      }
-                      .NodeJS{
-                        position: absolute;
-                        background-color: rgb(26, 151, 15);
-                        width: 75%; 
-                        height: 90%;
-                       transition: width 2s ease;
-                      }
-                      .PrismaClient{
-                        position: absolute;
-                        background-color: rgb(26, 151, 15);
-                        width: 82%; 
-                        height: 90%;
-                        transition: width 2s ease;
-                      }
-                      .PostgreSql{
-                        position: absolute;
-                        background-color: rgb(26, 151, 15);
-                        width: 92%; 
-                        height: 90%;
-                        transition: width 2s ease;
-                      }
-                    }
-                    
-                  }
-                 }
-               }
-            }
-        }
-        .secProjet{
-          padding: 50px 0px 150px 0px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-           .contentProjet{
-             width: 90%;
-             display: flex;
-             flex-direction: column;
-             align-items: center;
-             justify-content: center;
-             position: relative;
-              .projetcContaint{
-                padding-top: 20px;
-                display: flex;
-                flex-direction: column; 
-                width: 95%;
-                height: 60vh;
-                justify-content: space-between;
-                 .caseBox{
-                  display: flex;
-                  height: 27vh;
-                  font-size: 17px;
-                  font-weight: 600;
-                  width: 100%;
-                  justify-content: space-between;
-                   .divProj1{
-                    width:35%;
-                    background-color: red;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                    
-                   }
-                   .hopp:hover{transition:0.5s;color: rgb(184, 184, 184); background-color: $VertSite;}
-                   .divProj2{
-                     width: 60%;
-                     background-color: aqua;
-                     display: flex;
-                     flex-direction: column;
-                     align-items: center;
-                     justify-content: center;
-                   }
-                 }
-              }
-           }
-        }
-        .evaluation{
-          padding-top: 50px;
-          display: flex; 
-          align-items: center; 
-          justify-content: center; 
-          opacity: 0.6; 
-          background-image: url('../assets//image/3d-rendent-arbre-erable-japonais-ile-herbeuse-dans-ocean-contre-ciel-coucher-soleil_sss1048-4777.jpg');
-          background-size: contain; 
-          background-position: top; 
-          background-repeat: no-repeat; 
-          height: 400px;
-          .containtEvalution{
-             width: 90%;
-             display: flex;
-             flex-direction: column;
-             align-items: center;
-             .Stats{
-              margin-top: -70px;
-               width: 100%;
-               display: flex;
-               justify-content: space-between;
-                .boxStat{
-                  width: 23%;
-                  height: 14vh;
-                  background-color: rgb(63, 63, 63);
-                  display: flex;
-                  flex-direction: column;
-                  align-items: center;
-                  justify-content: center;
-                  font-size: 14px;
-                  font-weight: 600;
-                   .numberStat{
-                    color: rgb(84, 219, 136);
-                    font-size: 34px;
-                  }
-                }
-             }
-             .declaFreelancing{
-              padding-top: 40px;
-              font-size: 28px; 
-              padding-bottom: 30px;
-               .wordDispo{color:rgb(84, 219, 136);}
-             }
-             .phrasesCles{padding:22px 7px;}
-             .btnEmbu{
-              width: 28%;
-              padding: 8px 10px;
-              border: none;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              cursor: pointer;
-              background-color: $VertSite;
-              font-size: 15px;
-             }
-          }
-        }
-        .secContact{
-          .containtContact{
-            position: relative;
-            .cartesAdressContent{
-              display: grid;
-              grid-template-columns: repeat(2,1fr);
-              gap: 10px;
-              .carteAdress{
-                 font-size: 13px;
-                 width: 64%;
-                 height: 110px;
-                 text-align: center;
-                 padding: 10px;
-                  .svgImg{
-                    background-color: rgb(117, 117, 117);
-                    height: 52%;
-                    width: 39%;
-                    border-radius: 50%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                     .cvg{color: rgb(146, 255, 127);font-size: 35px;}
-                  }
-              }
-            }
-            .divForm{
-              display: flex;
-              width: 100%;
-              height: 85vh;
-              margin: 0 auto;
-              justify-content: center;
-              .gaucheDivFomr{display: none;}
-              .droiteDivForm{
-                width: 80%;
-                //height: 47vh;
-                background-color: rgb(255, 255, 255);
-                form{
-                  width: 100%;
-                  height: 59vh;
-                  display: flex;
-                  justify-content:center;
-                  align-items: center;
-                  .containform{
-                    width: 80%;
-                    height: 100%;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    .divInp{
-                      position: relative; 
-                      height: 15px; 
-                      line-height: 20px;
-                      .inpdivInp{
-                        position: absolute;
-                        width: 80%;
-                        font-size: 14px;
-                        padding: 0 20px;
-                        line-height: 28px;
-                        outline: none;
-                      }
-                      input:focus,textarea:focus{border: 1.5px solid black;transition: 0.5s;}
-                      .txtErea{
-                        height: 70px;
-                        //width: 90%;
-                      }
-                      
-                    }
-                    .btnSub{
-                      width: 40%;
-                      border:none;
-                      padding: 5px 6px;
-                      margin-top:35px;
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                      cursor: pointer;
-                      font-size: 16px;
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-
-
-        .titSect{
-          font-weight: 800;
-          font-size: 33px;
-          padding-bottom: 29px;
-          z-index: 1111;
-        }
-        .soutTiSec{
-          font-weight: 900;
-          font-size: 73px;
-          position: absolute;
-          top: -9px;
-          color: rgb(40, 40, 40);
-        }
-        .descriC{
-           color: rgb(160, 160, 160);
-           padding-bottom: 50px;
-        }
-       } 
-    }
-    footer{
-      padding-top: 50px;
-      color: rgb(255, 255, 255);
-      width: 100%;
-      //background-color: red;
-      height: auto;
-       .containtFooter{
-        width: 95%;
-        display:flex;
-        flex-direction: column;
-        //background-color: rgb(72, 84, 53);
-        
-         .carteFoot{
-          font-size: 12px;
-          display:flex;
-          width: 100%;
-          height: 100%;
-          gap: 15px;
-          flex-direction: column;
-          padding-left: 28px;
-           .aProp{
-              width: 70%;
-              //height: 40%;
-              //color: rgb(203, 203, 203);
-              display: flex;
-              font-size: 15px;
-              flex-direction: column;
-              justify-content: space-between;
-              .titApro{
-               height: 10%;
-               font-weight: 600;
-               font-size: 21px;
-               color: white;
-               padding-bottom: 16px;
-              }
-              .divList{
-                height: 80%;
-                ul{
-                  list-style-type: none;
-                  padding: 0;
-                  margin: 0;
-                  li{
-                    align-items: center;
-                    display: flex;
-                    padding: 2px 1px;
-                     a{
-                      color:inherit;
-                     }
-                  }
-                }
-              }
-              .lsRs{
-                width: 100%;
-                display: flex;
-                 height: 20%;
-                 align-items: center;
-                 justify-content: space-between;
-                 a{ svg:hover{color: $VertSite;}}
-               }
-           }
-         }
-       }
-       .copyR{
-        height: 10%;
-        width: 95%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: rgb(2, 2, 2);
-       }
-    }
-}
-}
 
 
 
@@ -1861,7 +1168,6 @@ a{
       .menuBurger{display: block;}
       .btTheme{
         position: absolute;
-        //top: 10px;
         right: 94px;
       }
     }
@@ -1887,7 +1193,6 @@ a{
           display: flex;
           align-items: center;
           justify-content: center;
-          //background-color: rebeccapurple;
           .contebtAprops{
             width: 80%;
             margin: 0 auto;
@@ -1947,7 +1252,7 @@ a{
                 color: white;
                  .spChif{color: $VertSite;}
               }
-              .btnDowl{width: 44%;padding: 8px;border: none;cursor: pointer;font-weight: 600;background-color: $VertSite;font-size: 17px;}
+              .btnDowl{padding: 8px;border: none;cursor: pointer;font-weight: 600;background-color: $VertSite;font-size: 17px;}
              }
           }
         }
@@ -2430,7 +1735,701 @@ a{
     visibility: hidden;
   }
 }
+@media screen  and (max-width:480px){
+  .PortfolioPage{
 
+   width: 100%;
+   height: 100%;
+   overflow: hidden;
+     header{
+         width: 100%;     
+          .containtHeader{
+             height: 10vh;
+             width: 80%;
+             position: relative;
+              .lienRet{
+                 width: 20%;
+                  a{span{font-size: 15px;font-weight: 800;}}
+              }
+              .navigLinks{
+                 width: 60%;
+                 font-size: 18px;
+                 ul{
+                     width: 100%;
+                     height: 100vh;
+                     display: flex;
+                     justify-content: space-around;
+                     list-style-type: none;
+                     li{ 
+                         position: relative;
+                         display: inline-block;
+                         text-decoration: none;
+                     }
+                     li:after{
+                       content: '';
+                       position: absolute;
+                       width: 0;
+                       height: 2px;
+                       bottom: 0;
+                       left: 50%;
+                       background-color: $VertSite;
+                       transition: width 0.4s ease,left 0.4s;
+                     }
+                     li:hover:after{
+                       width: 100%;
+                       left: 0;
+                     }
+                 }
+              }
+              .navigLinks.showLis{
+               width: 100%;
+               height: 88vh;
+               //background-color: red;
+               top: 95px;
+                ul{
+                 width: 85%;
+                 height:100%;
+                }
+              }
+              .showLis {
+               width: 100%;
+               height: 100vh;
+               right: 0;
+               top:20px;
+               box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);;
+               background-color: rgb(55, 55, 55);
+               visibility: visible;
+               //z-index: 9999;
+               position: fixed;
+               opacity: 1;
+               // ul{
+               //   width: 85%;
+               //  height: 80vh;
+               //   li{
+               //     padding-bottom: 15px;
+               //   }
+               // }
+             }
+             .btTheme{
+               //width: 11%;
+               padding:5px 18px ;
+               position: absolute;
+               left: 230px;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+             }
+             .menuBurger{
+                    .menuButton,
+                    .menuButtonOpen{
+                        width: 35px;
+                        height: 35px;
+                      }
+                    
+                     .menuButtonBurger{
+                        width: 40px;
+                        height: 6px;
+                        }
+                     .menuButtonBurger::before,
+                     .menuButtonBurger::after{
+                       width: 35px;
+                       height: 6px;
+                     }
+                     .menuButtonBurger::before{transform: translateY(-13px);}
+                     .menuButtonBurger::after{transform: translateY(13px);}
+             }
+          }
+     }
+      body{
+        .containtBody{
+         .firts{
+           padding-bottom:0;
+           width: 100%;
+           height: 70vh;
+           justify-content: center;
+           align-items: center;
+           display: flex;
+            .containtFirts{
+              width: 80%;
+              display: flex;
+              .pres1{
+               width: 100%;
+                display: flex;
+                height: 45vh;
+                font-size: 18px;
+                 .partGauche{
+                   font-weight: 600;
+                    width: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    .partgaucheContent{
+                      display: flex;
+                      flex-direction: column;
+                      .enVertsite{color: $VertSite;}
+                      .balish5{color: rgb(55, 107, 197);
+                       }
+                       .h55{
+                         color: rgba(123, 123, 123, 0.979);
+                         .sizEnv{font-size: 23px;} 
+                       }
+                       .h11{
+                         margin-top: 0;
+                         color: rgba(123, 123, 123, 0.979);
+                          .wordd{color: white;font-size: 45px;}
+                       }
+                       .btss{
+                         width: 80%;
+                         display: flex;
+                         justify-content: space-between;
+                          .bntac{width: 49%;padding: 7px;font-weight: 600;font-size:14px;background-color: $VertSite;border: none;cursor: pointer;}
+                          .rf{border:1px solid white;background-color: inherit; color: white; cursor: pointer;}
+                       }
+                    }
+                 }
+                 .partDroite{
+                   width: 50%;
+                   img{
+                     background-size: cover;
+                     background-position: center;
+                   }
+                 }
+              }
+            }
+         }
+         .secApropos{
+           width: 100%;
+           .contebtAprops{
+              display: flex;
+              flex-direction:column;
+              .drtt{visibility: hidden;}
+              .gchht{
+               position: relative;
+               width: 95%;
+               height: 100%;
+               color: rgb(141, 141, 141);
+               font-size: 18px;
+               font-weight: 600;
+               display: flex;
+               flex-direction: column;
+               justify-content: center;
+               align-items: center;
+               .titSect{
+                 font-size: 8vw;
+                 margin-top: -73px;
+                 margin-left: 32px;
+                 padding-bottom: 60px;
+                 display: block;
+               }
+               .soutTiSec{
+                 display: flex;
+                 top: -80px;
+                 //background-color: green;
+                 font-size: 16vw;
+               }
+               .gdgd{color: white;margin-left: -25px;text-align: center;}
+               table{
+                 margin-right: 102px;
+                 width: 90%;
+                 height: 45%;
+                 display: flex;
+                 padding-top: 10px;
+                 justify-content: space-between;
+                 .td1{padding-right: 8px;}
+                 td{
+                   display: flex;
+                   flex-direction: column;
+                   justify-content: space-between;
+                 }
+               }
+               h4{
+                 font-size: 28px;
+                 color: white;
+                  .spChif{color: $VertSite;}
+               }
+               .btnDowl{color: black;}
+              
+              }
+           }
+         }
+         .secCv{
+           width: 100%;
+           padding: 90px 0px 90px 0px;
+           .containtResum{
+             position: relative;
+             width: 88%;
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+             justify-content: center;
+              .divContent{
+               padding-top: 20px;
+               width: 100%;
+               display: flex;
+               flex-direction: column;
+               //gap: 0px;
+                .ligneCvrs{ 
+                 width: 100%;
+                 display: flex;
+                 flex-direction: column;
+                 gap: 11px;
+                   .bpss{
+                     background-color: rgb(67, 67, 67);
+                     width: 97%;
+                     margin: 0 auto;
+                      .containBpss{
+                       padding: 2px 7px;
+                       display: flex;
+                       font-size: 15px;
+                       flex-direction: column;
+                       justify-content: space-around;
+                       height: 100%;
+                        .aneee{color: $VertSite;font-size: 26px;font-weight: 800;}
+                        .diplo{font-size: 20px;}
+                        .etabl{}
+                        .resudd{font-size: 14px; display: -webkit-box;
+                          -webkit-line-clamp: 3;
+                          -webkit-box-orient: vertical;
+                          overflow: hidden;}
+                      }
+                   }
+                }
+              }
+              .btnCV{
+               margin-top: 25px;
+               display: block;
+               border: none;
+               color: black;
+               cursor: pointer;
+               background-color: $VertSite;
+               font-size: 15px;
+               text-align: center;
+              }
+           }
+         }
+         .secService{
+           padding: 50px 0px 50px 0px;
+           .containtServ{
+              position: relative;
+              width: 90%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              flex-direction: column;
+               .contentBoxSev{
+                 padding-top: 30px;
+                  .lignebox{
+                     .boxServ{
+                       font-size: 10px;
+                       font-weight: 600;
+                       cursor: pointer;
+                       .customSvg{width: 49px;}
+                        span{color: $VertSite;font-size: 13px;}
+                        .SteticLign{color: $VertSite;width: 17%;}
+                     }
+                  }
+               }
+           }
+         }
+         .secSkil{
+           padding: 80px  0px;
+           width: 100%;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+             .containtSkill{
+               font-size: 18px;
+               font-weight: 600;
+               width: 88%;
+               position: relative;
+               display: flex;
+               flex-direction: column;
+               justify-content: center;
+                align-items: center;
+                .contentSkill{
+                 width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    .fillProgress{animation: fillbar 2s forwards;}
+                  .divSkill2{
+                   display: flex;
+                   width: 100%;
+                   justify-content: space-between;
+                   padding-bottom: 20px;
+                   .barskilContent{
+                     width: 48%;
+                     height: 5.5vh;
+                     //background-color: red;
+                     display: flex;
+                     flex-direction:column;
+                     justify-content: space-between;
+                     .topBarSkil{
+                       width: 98%;
+                       height: 60%;
+                       display: flex;
+                       align-items: center;
+                       justify-content: space-between;
+                       padding-bottom: 5px;
+                     }
+                     .bottombarSkill{
+                      width: 100%;
+                       height: 40%;
+                       background-color: rgb(71, 71, 71);
+                       border-radius: 6px;
+                       position: relative;
+                       display: flex;
+                       align-items: center;
+                      .Javascript{
+                          position: absolute;
+                          
+                          width: 85%; 
+                          height: 90%;
+                          transition: width 2s ease;
+                        }
+                        .Typescript{
+                         position: absolute;
+                         
+                         width: 82%; 
+                         height: 90%;
+                         transition: width 2s ease;
+                       }
+                       .Figma{
+                         position: absolute;
+                         
+                         width: 78%; 
+                         height: 90%;
+                         transition: width 2s ease;
+                       }
+                       .WordPress{
+                         position: absolute;
+                         
+                         width: 89%; 
+                         height: 90%;
+                         transition: width 2s ease;
+                       }
+                       .Css{
+                         position: absolute;
+                         background-color: rgb(26, 151, 15);
+                         width: 87%; 
+                         height: 90%;
+                         transition: width 2s ease;
+                       }
+                       .Html{
+                         position: absolute;
+                         width: 90%; 
+                         height: 90%;
+                         transition: width 2s ease;
+                       }
+                       .NestJS{
+                         position: absolute;
+                         
+                         width: 85%; 
+                         height: 90%;
+                         transition: width 2s ease;
+                       }
+                       .NodeJS{
+                         position: absolute;
+                         width: 75%; 
+                         height: 90%;
+                        transition: width 2s ease;
+                       }
+                       .PrismaClient{
+                         position: absolute;
+                         background-color: rgb(26, 151, 15);
+                         width: 82%; 
+                         height: 90%;
+                         transition: width 2s ease;
+                       }
+                       .PostgreSql{
+                         position: absolute;
+                         width: 92%; 
+                         height: 90%;
+                         transition: width 2s ease;
+                       }
+                     }
+                     
+                   }
+                  }
+                }
+             }
+         }
+         .secProjet{
+           padding: 50px 0px 150px 0px;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+            .contentProjet{
+              width: 90%;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              position: relative;
+               .projetcContaint{
+                 padding-top: 20px;
+                 display: flex;
+                 flex-direction: column; 
+                 width: 95%;
+                 height: 60vh;
+                 justify-content: space-between;
+                  .caseBox{
+                   display: flex;
+                   height: 27vh;
+                   font-size: 17px;
+                   font-weight: 600;
+                   width: 100%;
+                   justify-content: space-between;
+                    .divProj1{
+                     width:35%;
+                     background-color: red;
+                     display: flex;
+                     flex-direction: column;
+                     align-items: center;
+                     justify-content: center;
+                     
+                    }
+                    .hopp:hover{transition:0.5s;color: rgb(184, 184, 184); background-color: $VertSite;}
+                    .divProj2{
+                      width: 60%;
+                      background-color: aqua;
+                      display: flex;
+                      flex-direction: column;
+                      align-items: center;
+                      justify-content: center;
+                    }
+                  }
+               }
+            }
+         }
+         .evaluation{
+           padding-top: 50px;
+           padding-bottom: 100px;
+
+           .containtEvalution{
+              width: 95%;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              .Stats{
+               margin-top: -70px;
+                 .boxStat{
+                   width: 24%;
+                   height: 10vh;
+                   .botStt{font-size: 11px;}
+                 }
+              }
+              .declaFreelancing{
+               padding-top: 40px; 
+               font-size: 28px; 
+               font-weight: 600;
+               padding-bottom: 30px; 
+               text-align: center;
+                .wordDispo{color:rgb(84, 219, 136);}
+              }
+              .phrasesCles{padding:22px 7px;}
+
+              .btnEmbu{
+               width: 35%;
+               padding: 8px 10px;
+               border: none;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               cursor: pointer;
+               background-color: $VertSite;
+               font-size: 15px;
+               color: black;
+              }
+           }
+         }
+         .secContact{
+           .containtContact{
+             position: relative;
+             height: 100vh;
+             .cartesAdressContent{
+               display: grid;
+               grid-template-columns: repeat(2,1fr);
+               gap: 10px;
+               .carteAdress{
+                  font-size: 13px;
+                  width: 45%;
+                  height: 110px;
+                  text-align: center;
+                  padding: 7px;
+                   .svgImg{
+                     background-color: rgb(117, 117, 117);
+                     height: 0px;
+                     border-radius: 50%;
+                     display: flex;
+                     justify-content: center;
+                     align-items: center;
+                      .cvg{color: rgb(146, 255, 127);font-size:35px;}
+                   }
+                   .Itadrs{font-size: 11px;}
+                   .adrs{display: block;font-size: 14px;}
+                   .ggg{margin-left: 15px;}
+               }
+             }
+             .divForm{
+               display: flex;
+               width: 100%;
+               height: 40vh;
+               margin: 0 auto;
+               justify-content: center;
+               .gaucheDivFomr{display: none;}
+               .droiteDivForm{
+                 width: 95%;
+                 height: 40vh;
+                 background-color: rgb(255, 255, 255);
+                 form{
+                   width: 100%;
+                   height: 39vh;
+                   display: flex;
+                   justify-content:center;
+                   align-items: center;
+                   .containform{
+                    padding-top: 15px;
+                     width: 80%;
+                     height: 100%;
+                     display: flex;
+                     flex-direction: column;
+                     justify-content: space-between;
+                     .divInp{
+                       position: relative; 
+                       height: 15px; 
+                       line-height: 15px;
+                       //border: none;
+                       //border-radius: none;
+                       margin-left: -29px;
+                       .inpdivInp{
+                         position: absolute;
+                         width: 95%;
+                         height: 50px;
+                         font-size: 14px;
+                         padding: 0 20px;
+                         line-height: 28px;
+                         outline: none;
+                       }
+                       input:focus,textarea:focus{border: 1.5px solid black;transition: 0.5s;}
+                       .txtErea{
+                         height: 90px;
+                         //width: 90%;
+                       }
+                       
+                     }
+                     .btnSub{
+                       width: 100%;
+                       border-radius:none;
+                       padding: 5px 6px;
+                       margin-top:35px;
+                       display: flex;
+                       align-items: center;
+                       justify-content: center;
+                       cursor: pointer;
+                       font-size: 16px;
+                       color: black;
+                     }
+                   }
+                 }
+               }
+             }
+           }
+         }
+ 
+ 
+         .titSect{
+           font-weight: 800;
+           font-size: 33px;
+           padding-bottom: 29px;
+           z-index: 1111;
+         }
+         .soutTiSec{
+           font-weight: 900;
+           font-size: 73px;
+           position: absolute;
+           top: -9px;
+           color: rgb(40, 40, 40);
+         }
+         .descriC{
+            color: rgb(160, 160, 160);
+            padding-bottom: 50px;
+         }
+        } 
+     }
+     footer{
+       padding-top: 90px;
+       color: rgb(255, 255, 255);
+       width: 100%;
+       height: 98vh;
+        .containtFooter{
+         width: 95%;
+         height: 95%;
+         display:flex;
+         flex-direction: column;
+          .carteFoot{
+           font-size: 12px;
+           display:flex;
+           width: 100%;
+           gap:4px;
+           flex-direction: column;
+           padding-left: 28px;
+           height: auto;
+            .aProp{
+              //background-color: red;
+               width: 90%;
+               display: flex;
+               font-size: 15px;
+               flex-direction: column;
+               justify-content: space-between;
+               height: auto;
+               .titApro{
+                height: 10%;
+                font-weight: 600;
+                font-size: 21px;
+                color: white;
+                padding-bottom: 16px;
+               }
+               .divList{
+                 height: 80%;
+                 font-size: 4vw;
+                 ul{
+                   list-style-type: none;
+                   padding: 0;
+                   margin: 0;
+                   li{
+                     align-items: center;
+                     display: flex;
+                     padding: 2px 1px;
+                      a{
+                       color:inherit;
+                      }
+                   }
+                 }
+               }
+               .lsRs{
+                 width: 100%;
+                 display: flex;
+                  height: 20%;
+                  align-items: center;
+                  justify-content: space-between;
+                  a{ svg:hover{color: $VertSite;}}
+                }
+            }
+          }
+        }
+        .copyR{
+         height: 9%;
+         width: 95%;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         background-color: rgb(2, 2, 2);
+        }
+     }
+ }
+ }
 
 //TABLETTE portrait
 @media  screen and (min-width:481px) and (max-width:768px) {

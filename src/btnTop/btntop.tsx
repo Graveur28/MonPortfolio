@@ -1,4 +1,8 @@
 import { useEffect, useState } from 'react'
+import  '../style/btnTop.scss'
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+
+
 
 export default function Btntop() {
     const [backTop,setBackTop]=useState(false);
@@ -19,24 +23,8 @@ export default function Btntop() {
   return (
     <>
          {backTop && (
-            <button style={{
-                position:"fixed",
-                fontSize:"17px",
-                bottom:"50px",
-                right:"30px",
-                height:"35px",
-                display:"flex",
-                justifyContent:"center",
-                alignContent: "center",
-                width:"35px",
-                widows:"50px",
-                borderRadius:"50%",
-                border:"none",
-                //background:"rgba(0,0,0,0.5)",
-                cursor:"pointer",
-                
-            }}
-            onClick={scrollTop}>^</button>
+            <span className='btnnnd' 
+            onClick={scrollTop}><ArrowUpwardIcon className='arrr'/></span>
          )}
     </>
   )

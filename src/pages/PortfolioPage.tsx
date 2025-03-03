@@ -11,7 +11,7 @@ import XIcon from '@mui/icons-material/X';
 import PinDropIcon from '@mui/icons-material/PinDrop';
 import SendIcon from '@mui/icons-material/Send';
 import LanguageIcon from '@mui/icons-material/Language';
-import { FormEvent, useEffect, useRef, useState } from 'react';
+import {useEffect, useState } from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ModeNightIcon from '@mui/icons-material/ModeNight';
@@ -33,12 +33,15 @@ import DesignServicesIcon from '@mui/icons-material/DesignServices'; //web desig
 import IntegrationInstructionsIcon from '@mui/icons-material/IntegrationInstructions'; //Integration
 import DoneIcon from '@mui/icons-material/Done'; //check
 import emailjs from '@emailjs/browser';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import frontMe from '../assets/image/dessME.png'
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import bilokos from '../assets/image/billokoa.png';
 import yaTout from '../assets/image/Capture d’écran (203).png';
 import stevenFood from '../assets/image/logo.jpg';
+import Emoji from 'react-emoji-render';
+
+
 
 export default function PortfolioPage() {
     const [stateTheme,setStateTheme]=useState("noir")
@@ -46,15 +49,13 @@ export default function PortfolioPage() {
         if(stateTheme === 'noir'){setStateTheme('blanc')}
         else{setStateTheme('noir')}
     }
-    
+
     //Menu Burger
     const [isOpen,setIsOpen]=useState(true)
     //const setOpenstate=()=>{setIsOpen(!isOpen)}
 
     //AOS css
-    useEffect(()=>{
-     AOS.init({duration:2300});
-    },[]);
+    useEffect(()=>{AOS.init({duration:2300});},[]);
 
 
     //arret scroll
@@ -67,25 +68,35 @@ export default function PortfolioPage() {
 
 
     //Formulaire
-    const form = useRef<HTMLFormElement>(null);
 
-  const sendEmail = (e:FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-     
-    if(!form.current) return;
+       const [name,setName]=useState('');
+       const [email,setEmail]=useState('');
+       const [message,setMessage]=useState('');
 
-    emailjs
-      .sendForm('service_atji726', 'Yservice_atji726', form.current, {
-        publicKey: '2Wc3vxd73eAwe72XT',})
-      .then(() => {
-          console.log('SUCCES!');
-          toast.success("✅ Message envoyé avec succès !", { className: "msgDone",});
-        },(error) => {
-          console.log('ECHEC...', error.text);
-          toast.error("❌ Erreur lors de l'envoi du message.",{className: "msgFailed",});
-        },
-      );
-  };
+       const handlesubmit=(e:React.FormEvent<HTMLFormElement>)=>{e.preventDefault();
+        const serviceId='service_atji726';
+        const templateId='template_jk4divo';
+        const publickey='2Wc3vxd73eAwe72XT';
+  
+        const templateParams={
+           from_name:name,
+           from_email:email,
+           to_name:'Exauce NYEMBWE',
+           message:message,
+        }
+        emailjs.send(serviceId,templateId,templateParams,publickey)
+         .then((response)=>{
+             console.log('mail sent',response);
+             alert("✅ Message envoyé avec succès !");
+             setName('');
+             setEmail('');
+             setMessage('');
+         })
+         .catch((error)=>{
+             console.log('Error sending email',error);
+             alert("❌ Erreur lors de l'envoi du message.");
+         })
+       }
 
 
   return (
@@ -122,9 +133,9 @@ export default function PortfolioPage() {
        <body>
          <div className="containtBody">
 
-             <section  className={`firts ${isOpen? "":"hiddFirt"}`} id='secFirst' >
+            <section  className={`firts ${isOpen? "":"hiddFirt"}`} id='secFirst' >
                  <CarousselPerso data={data} theme={stateTheme}/>                     
-             </section>
+            </section>
 
             <section data-aos="fade-up"  className='secApropos' id='secAprop'>
                  <div className="contebtAprops">
@@ -134,14 +145,14 @@ export default function PortfolioPage() {
                      <div className="gchht">
                         <span className='titSect'>A propos</span>
                         <span className='soutTiSec'>A propos</span>
-                        <span>Vos idees en realite numerique,Contactez-moi des aujourd'hui </span>
+                        <span className='gdgd'>Je transforme vos idées en solutions numériques concrètes. Contactez-moi dès aujourd’hui !</span>
                         <table>
                               <td className='td1'>
-                                 <tr><span className='droo'>Nom:</span></tr>
-                                 <tr><span className='droo'>Date de naissance:</span></tr> 
-                                 <tr><span className='droo'>Adresse:</span></tr> 
-                                 <tr><span className='droo'>Email:</span></tr> 
-                                 <tr> <span className='droo'>Telephone:</span></tr>
+                                 <tr><span className='droo'><Emoji text='😁'/> </span></tr>
+                                 <tr><span className='droo'><Emoji text="🎈"/></span></tr> 
+                                 <tr><span className='droo'><Emoji text='🔻'/></span></tr> 
+                                 <tr><span className='droo'><Emoji text='📧'/></span></tr> 
+                                 <tr> <span className='droo'><Emoji text='☎️'/></span></tr>
                               </td>
                               <td >
                                 <tr><span className='gaud'>Exauce Nyembwe</span></tr> 
@@ -153,7 +164,7 @@ export default function PortfolioPage() {
                         </table>
                         
                        <h4> <span className='spChif'>+<CountUp start={0}end={11} duration={6.75}></CountUp></span> Projects complets</h4>
-                       <a href={MonCv} download="ExaucéNYEMBWE_dev.pdf" ><button className='btnDowl'>Telecharger le cv</button></a>
+                       <a  href={MonCv} download="ExaucéNYEMBWE_dev.pdf" ><span className='btnDowl'>Telecharger le cv</span></a>
                      </div>
                 </div>
             </section>
@@ -216,7 +227,8 @@ export default function PortfolioPage() {
                            </div>
                         </div>
                     </div>
-                    <a href={MonCv} download="ExaucéNYEMBWE_dev.pdf"><button className='btnCV'>Telecharger le cv</button></a>
+                    <a href={MonCv} download="ExaucéNYEMBWE_dev.pdf"><span className='btnCV'>Telecharger le cv</span></a>
+
                 </div>
             </section>
 
@@ -333,7 +345,7 @@ export default function PortfolioPage() {
 
             <section data-aos="fade-up"  className='secProjet' id='secProject'>
                 <div className="contentProjet">
-                    <span className='titSect'>Nos projets</span>
+                    <span className='titSect'>Projets</span>
                     <span className='soutTiSec'>Projets</span>
                     <span className='descriC'>Des liens vers les projets réalisés</span>
                     <div className="projetcContaint">
@@ -392,13 +404,13 @@ export default function PortfolioPage() {
                     <span className='declaFreelancing'>Je suis <span className='wordDispo'>disponible</span>  pour du freelancing</span>
                     <span className='phrasesCles'>Passionné par le développement web, je mets a profit mon savoir et ma créativité pour relever les défis et innover constamment. <br />
                     Mon parcours diversifier témoigne de ma capacite a m'adapter rapidement et exceller dans des environnement dynamiques</span>
-                     <button className='btnEmbu'><Link to="secContac" smooth={true} duration={500} offset={90} spy={true}>Embauche-moi</Link></button>
+                     <span className='btnEmbu'><Link to="secContac" smooth={true} duration={500} offset={90} spy={true}>Embauche-moi</Link></span>
                 </div>
             </section>
 
             <section data-aos="fade-up"  className='secContact' id='secContac'>
                 <div className="containtContact">
-                    <span className='titSect'>Contactez moi</span>
+                    <span className='titSect'>Contact</span>
                     <span className='soutTiSec'>Contact</span>
                     <span className='descriC'>Mon adresse,mon numeo de telephone,mon mail,tout pour vous infomer de moi</span>
                     <div className="cartesAdressContent">
@@ -409,18 +421,18 @@ export default function PortfolioPage() {
                         </div>
                         <div className="carteAdress">
                             <span className="svgImg"><PhoneIcon className='cvg'/></span>
-                            <span>NUMERO TELEPHONE</span>
-                            <span>+243 991301132</span>
+                            <span className="Itadrs">NUMERO TELEPHONE</span>
+                            <span className="adrs">+243991301132</span>
                         </div>
                         <div className="carteAdress">
                             <span className="svgImg"><SendIcon className='cvg'/></span>
-                            <span>ADRESSE MAIL</span>
-                            <span>exaudinhonyembwe@gmail.com</span>
+                            <span className="Itadrs">ADRESSE MAIL</span>
+                            <span className="adrs ggg">exaudinhonyembwe@gmail.com</span>
                         </div>
                         <div className="carteAdress">
                             <span className="svgImg"><LanguageIcon className='cvg'/></span>
-                            <span>SITE WEB</span>
-                            <span><a href="">MonSite.com</a></span>
+                            <span className="Itadrs">SITE WEB</span>
+                            <span className="adrs"><a href="">MonSite.com</a></span>
                         </div>
                     </div>
                     <div className="divForm">
@@ -434,18 +446,18 @@ export default function PortfolioPage() {
                             </div>
                         </div>
                         <div className="droiteDivForm">
-                            <form action="" ref={form} onSubmit={sendEmail} >
+                            <form  onSubmit={handlesubmit} >
                                 <div className="containform">
                                     <div className="divInp">
-                                      <input className='inpdivInp' name='name' type="text" placeholder='Votre nom' required/>
+                                      <input className='inpdivInp'value={name} type="text" placeholder='Votre nom' onChange={(e)=>setName(e.target.value)} required/>
                                     </div>
                                     <div className="divInp">
-                                      <input className='inpdivInp' name='mail' type="mail" placeholder='votre mail' required/>
+                                      <input className='inpdivInp'value={email} type="mail" placeholder='votre mail' onChange={(e)=>setEmail(e.target.value)} required/>
                                     </div>
                                     <div className="divInp">
-                                       <textarea className='inpdivInp txtErea' name="message" id="" placeholder='votre Message' required></textarea>
+                                       <textarea className='inpdivInp txtErea' value={message} id="" placeholder='votre Message' onChange={(e)=>setMessage(e.target.value)} required></textarea>
                                     </div>
-                                    <input className='btnSub' type="submit" />
+                                    <button className='btnSub' type='submit'>Envoyer</button>
                                 </div>
                             </form>
                         </div>
@@ -506,7 +518,7 @@ export default function PortfolioPage() {
              </div>
 
           </div>
-          <div className='copyR'>Copyright2024 Tout droit reserves | Graveur Inc.</div>
+          <div className='copyR'>Copyright2024 Tout droit réservés | Graveur Inc.</div>
        </footer>
     </div>
   )
