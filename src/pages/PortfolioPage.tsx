@@ -156,7 +156,7 @@ export default function PortfolioPage() {
                               </td>
                               <td >
                                 <tr><span className='gaud'>Exauce Nyembwe</span></tr> 
-                                <tr><span className='gaud'>28 fevrier 2000</span></tr> 
+                                <tr><span className='gaud'>28 fevrier</span></tr> 
                                 <tr><span className='gaud'>Kinshasa,Limete 7ieme rue </span></tr> 
                                 <tr><span className='gaud'>exaudinhonyembwe@gmail.com</span></tr> 
                                 <tr><span className='gaud'>+243 991301132</span></tr> 
